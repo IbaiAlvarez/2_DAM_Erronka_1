@@ -7,82 +7,63 @@
     tools:context=".Login">
 
     <EditText
-        android:id="@+id/edt_erabiltzaiela"
+        android:id="@+id/txt_erabiltzailea"
+        android:layout_width="250sp"
+        android:layout_height="65sp"
+        android:layout_marginTop="100dp"
+        android:width="250sp"
+        android:height="65sp"
+        android:ems="10"
+        android:hint="Usuario"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lbl_empresa" />
+
+    <Button
+        android:id="@+id/btn_login"
+        android:layout_width="160sp"
+        android:layout_height="55sp"
+        android:layout_marginTop="70dp"
+        android:text="SAIOA HASI"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txt_pasahitza" />
+
+    <TextView
+        android:id="@+id/lbl_empresa"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="41dp"
-        android:layout_marginTop="155dp"
-        android:ems="10"
+        android:layout_marginTop="85dp"
+        android:text="Inicio de sesión"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/edt_pasahitza"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="303dp"
-        android:layout_marginBottom="84dp"
+        android:id="@+id/txt_pasahitza"
+        android:layout_width="250sp"
+        android:layout_height="65sp"
+        android:layout_marginTop="60dp"
+        android:width="250sp"
+        android:height="200sp"
         android:ems="10"
-        android:inputType="text"
-        app:layout_constraintBottom_toTopOf="@+id/btn_registrar"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/erabiltzailea"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="3dp"
-        android:layout_marginBottom="23dp"
-        android:text="ERABILTZAIELA"
-        app:layout_constraintBottom_toTopOf="@+id/edt_erabiltzaiela"
-        app:layout_constraintStart_toStartOf="@+id/edt_erabiltzaiela" />
-
-    <TextView
-        android:id="@+id/pasahitza"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="1dp"
-        android:layout_marginBottom="15dp"
-        android:text="PASAHITZA"
-        app:layout_constraintBottom_toTopOf="@+id/edt_pasahitza"
-        app:layout_constraintStart_toStartOf="@+id/edt_pasahitza" />
-
-    <Button
-        android:id="@+id/btn_iniciar"
-        android:layout_width="149dp"
-        android:layout_height="48dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="432dp"
-        android:layout_marginEnd="72dp"
-        android:layout_marginBottom="123dp"
-        android:text="SAIOA HASI"
-        app:layout_constraintBottom_toTopOf="@+id/btn_ofertas"
-        app:layout_constraintEnd_toStartOf="@+id/btn_registrar"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
-        android:id="@+id/btn_registrar"
-        android:layout_width="157dp"
-        android:layout_height="48dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="251dp"
-        android:text="ERREGISTRATU"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/btn_iniciar"
-        app:layout_constraintTop_toBottomOf="@+id/edt_pasahitza" />
-
-    <Button
-        android:id="@+id/btn_ofertas"
-        android:layout_width="139dp"
-        android:layout_height="0dp"
-        android:layout_marginBottom="47dp"
-        android:text="ESKAINTZAK"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:hint="Contraseña"
+        android:inputType="textPassword"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_iniciar" />
+        app:layout_constraintTop_toBottomOf="@+id/txt_erabiltzailea" />
+
+    <TextView
+        android:id="@+id/lbl_erregistratzea"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:text="No tienes una cuenta?"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_login" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

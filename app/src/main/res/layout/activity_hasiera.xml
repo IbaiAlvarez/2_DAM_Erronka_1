@@ -6,4 +6,13 @@
     android:layout_height="match_parent"
     tools:context=".Hasiera">
 
+    <TextView
+        android:id="@+id/lbl_hasiera"
+        android:layout_width="62dp"
+        android:layout_height="21dp"
+        android:layout_marginTop="70dp"
+        android:text="HASIERA"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

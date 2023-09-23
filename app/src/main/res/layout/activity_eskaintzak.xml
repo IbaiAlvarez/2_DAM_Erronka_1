@@ -4,50 +4,69 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:scrollbarSize="20sp"
     tools:context=".Eskaintzak">
-
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="384dp"
-        android:layout_height="235dp"
-        android:layout_marginBottom="36dp"
-        app:layout_constraintBottom_toTopOf="@+id/btn_kirolak"
-        tools:layout_editor_absoluteX="16dp"
-        tools:srcCompat="@tools:sample/avatars" />
 
     <Button
         android:id="@+id/btn_kirolak"
         android:layout_width="143dp"
         android:layout_height="48dp"
-        android:text="KIROLAK"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginStart="44dp"
+        android:layout_marginTop="180dp"
+        android:text="DEPORTES"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="318dp" />
+        app:layout_constraintTop_toBottomOf="@+id/lbl_kategoriak" />
 
     <Button
-        android:id="@+id/btn_musikala"
+        android:id="@+id/btn_musika"
         android:layout_width="146dp"
         android:layout_height="48dp"
-        android:text="MUSIKALAK"
+        android:layout_marginTop="180dp"
+        android:text="MUSICA"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="404dp" />
+        app:layout_constraintStart_toEndOf="@+id/btn_kirolak"
+        app:layout_constraintTop_toBottomOf="@+id/lbl_kategoriak" />
 
     <Button
-        android:id="@+id/btn_zinemak"
+        android:id="@+id/btn_zine"
         android:layout_width="146dp"
         android:layout_height="49dp"
-        android:text="ZINEMAK"
+        android:layout_marginTop="45dp"
+        android:text="CINE"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="580dp" />
+        app:layout_constraintHorizontal_bias="0.478"
+        app:layout_constraintStart_toEndOf="@+id/btn_antzerki"
+        app:layout_constraintTop_toBottomOf="@+id/btn_musika" />
 
     <Button
         android:id="@+id/btn_antzerki"
         android:layout_width="146dp"
         android:layout_height="50dp"
-        android:text="ANTZERKIAK"
+        android:layout_marginStart="44dp"
+        android:layout_marginTop="45dp"
+        android:text="TEATRO"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_kirolak" />
+
+    <TextView
+        android:id="@+id/lbl_kategoriak"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="85dp"
+        android:text="Categorias"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btn_atzera_kategoriak"
+        android:layout_width="100sp"
+        android:layout_height="55sp"
+        android:layout_marginTop="100dp"
+        android:text="ATRAS"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="493dp" />
+        app:layout_constraintTop_toBottomOf="@+id/btn_zine" />
 </androidx.constraintlayout.widget.ConstraintLayout>

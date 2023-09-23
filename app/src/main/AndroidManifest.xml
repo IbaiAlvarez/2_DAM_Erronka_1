@@ -34,6 +34,9 @@
             android:name=".Kirolak"
             android:exported="false" />
         <activity
+            android:name=".Erregistroa"
+            android:exported="false" />
+        <activity
             android:name=".ErreserbaKudeaketa"
             android:exported="false" />
         <activity
