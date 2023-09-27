@@ -12,10 +12,10 @@
         android:layout_height="70dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.057"
+        app:layout_constraintHorizontal_bias="0.056"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/spin_K3"
-        app:layout_constraintVertical_bias="0.12" />
+        app:layout_constraintVertical_bias="0.102" />
 
     <TextView
         android:id="@+id/txt_kirolak"
@@ -71,10 +71,10 @@
         android:layout_height="70dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.057"
+        app:layout_constraintHorizontal_bias="0.056"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/spin_K1"
-        app:layout_constraintVertical_bias="0.071" />
+        app:layout_constraintVertical_bias="0.061" />
 
     <Spinner
         android:id="@+id/spin_K3"
@@ -82,8 +82,8 @@
         android:layout_height="70dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.057"
+        app:layout_constraintHorizontal_bias="0.056"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/spin_K2"
-        app:layout_constraintVertical_bias="0.085" />
+        app:layout_constraintVertical_bias="0.064" />
 </androidx.constraintlayout.widget.ConstraintLayout>

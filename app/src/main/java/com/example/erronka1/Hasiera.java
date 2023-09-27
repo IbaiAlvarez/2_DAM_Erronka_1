@@ -16,7 +16,7 @@ public class Hasiera extends AppCompatActivity {
 
         TextView txt_saioa = (TextView) findViewById(R.id.txt_HasieraInicio);
         TextView txt_erregistroa = (TextView) findViewById(R.id.txt_HasieraRegistro);
-        TextView txt_noticias = (TextView) findViewById(R.id.txt_bocetoH);
+        TextView txt_noticia = (TextView) findViewById(R.id.txt_bocetoH);
 
         txt_erregistroa.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -33,7 +33,7 @@ public class Hasiera extends AppCompatActivity {
             }
         });
 
-        txt_noticias.setOnClickListener(new View.OnClickListener() {
+        txt_noticia.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(Hasiera.this, Eskaintzak.class);

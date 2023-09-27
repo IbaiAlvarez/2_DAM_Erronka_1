@@ -17,12 +17,12 @@ public class Eskaintzak extends AppCompatActivity {
 
         Intent intent = getIntent();
         Button btn_atzeraEsk = (Button) findViewById(R.id.btn_atzera_kategoriak);
-        Button btn_kirolak = (Button) findViewById(R.id.btn_kirolak);
+        Button btn_kirola = (Button) findViewById(R.id.btn_kirolak);
         Button btn_musika = (Button) findViewById(R.id.btn_musika);
         Button btn_antzerki = (Button) findViewById(R.id.btn_antzerki);
         Button btn_zinema = (Button) findViewById(R.id.btn_zine);
 
-        btn_kirolak.setOnClickListener(new View.OnClickListener() {
+        btn_kirola.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent1 = new Intent(Eskaintzak.this, Kirolak.class);

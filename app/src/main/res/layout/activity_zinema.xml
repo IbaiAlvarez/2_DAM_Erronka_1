@@ -70,10 +70,10 @@
         android:layout_height="70dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.085"
+        app:layout_constraintHorizontal_bias="0.075"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txt_zinema"
-        app:layout_constraintVertical_bias="0.146" />
+        app:layout_constraintVertical_bias="0.141" />
 
     <Spinner
         android:id="@+id/spin_Z3"
