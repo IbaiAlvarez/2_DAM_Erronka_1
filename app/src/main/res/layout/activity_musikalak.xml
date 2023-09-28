@@ -12,10 +12,10 @@
         android:layout_height="70dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.065"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/spin_M3"
-        app:layout_constraintVertical_bias="0.082" />
+        app:layout_constraintVertical_bias="0.081" />
 
     <Spinner
         android:id="@+id/spin_M3"
@@ -24,10 +24,10 @@
         android:layout_marginBottom="172dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.065"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/spin_M2"
-        app:layout_constraintVertical_bias="0.111" />
+        app:layout_constraintVertical_bias="0.086" />
 
     <Spinner
         android:id="@+id/spin_M2"
@@ -36,10 +36,10 @@
         android:layout_marginBottom="332dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.065"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/spin_M1"
-        app:layout_constraintVertical_bias="0.162" />
+        app:layout_constraintVertical_bias="0.16" />
 
     <Spinner
         android:id="@+id/spin_M1"
@@ -48,10 +48,10 @@
         android:layout_marginBottom="388dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.075"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txt_Musikala"
-        app:layout_constraintVertical_bias="0.322" />
+        app:layout_constraintVertical_bias="0.333" />
 
     <Button
         android:id="@+id/btn_AtzeraM"
