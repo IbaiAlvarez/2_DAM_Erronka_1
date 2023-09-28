@@ -42,9 +42,9 @@ public class Kirolak extends AppCompatActivity {
         Spinner spinnerKirolak_orduak = findViewById(R.id.spin_K2);
         Spinner spinnerKirolak_data = findViewById(R.id.spin_K3);
         Spinner spinnerKirolak_aretoak = findViewById(R.id.spin_K4);
-        /*ArrayList<Kirolak> kirolakList = new ArrayList<>();
+        ArrayList<Kirolak> kirolakList = new ArrayList<>();
 
-        CollectionReference collectionRef = db.collection("kirolak");
+        /*CollectionReference collectionRef = db.collection("kirolak");
         collectionRef.get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
             @Override
             public void onSuccess(QuerySnapshot querySnapshot) {
