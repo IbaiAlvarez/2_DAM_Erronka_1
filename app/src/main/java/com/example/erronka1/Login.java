@@ -1,5 +1,7 @@
 package com.example.erronka1;
 
+import static android.content.ContentValues.TAG;
+
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -18,7 +20,11 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.firestore.QuerySnapshot;
 
 import org.checkerframework.checker.nullness.qual.NonNull;
 
@@ -55,8 +61,27 @@ public class Login extends AppCompatActivity {
                                 if (task.isSuccessful()) {
                                     // Sign in success, update UI with the signed-in user's information
                                     FirebaseUser user = mAuth.getCurrentUser();
-                                    Intent intent = new Intent(Login.this, Hasiera.class);
-                                    startActivity(intent);
+
+                                    DocumentReference docRef = db.collection("erabiltzaileak").document(txt_erabiltzailea.getText().toString());
+                                    docRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+                                                @Override
+                                                public void onComplete(@androidx.annotation.NonNull Task<DocumentSnapshot> task) {
+                                                    if (task.isSuccessful()) {
+                                                        DocumentSnapshot document = task.getResult();
+
+                                                        String erabiltzailee = document.get("erabiltzaile_mota").toString();
+                                                        if(document.get("erabiltzaile_mota").toString().equals("erabiltzailea")){
+                                                            Intent intent = new Intent(Login.this, Hasiera.class);
+                                                            startActivity(intent);
+                                                        }else if(document.get("erabiltzaile_mota").toString().equals("administratzailea")){
+                                                            Intent intent = new Intent(Login.this, MenuAdmin.class);
+                                                            startActivity(intent);
+                                                        }
+                                                    } else {
+                                                        Log.d(TAG, "Error getting documents: ", task.getException());
+                                                    }
+                                                }
+                                            });
                                 }
                                 //Erabiltzailea okerra bada
                                 else {
