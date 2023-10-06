@@ -68,8 +68,7 @@ public class Login extends AppCompatActivity {
                                                 public void onComplete(@androidx.annotation.NonNull Task<DocumentSnapshot> task) {
                                                     if (task.isSuccessful()) {
                                                         DocumentSnapshot document = task.getResult();
-
-                                                        String erabiltzailee = document.get("erabiltzaile_mota").toString();
+                                                        String erabiltzaile_mota = document.get("erabiltzaile_mota").toString();
                                                         if(document.get("erabiltzaile_mota").toString().equals("erabiltzailea")){
                                                             Intent intent = new Intent(Login.this, Hasiera.class);
                                                             startActivity(intent);
