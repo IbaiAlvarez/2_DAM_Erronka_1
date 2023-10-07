@@ -10,77 +10,83 @@
         android:id="@+id/spin_K4"
         android:layout_width="200dp"
         android:layout_height="70dp"
-        android:layout_marginStart="104dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginTop="30dp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/spin_K3"
-        app:layout_constraintVertical_bias="0.077"/>
+        app:layout_constraintTop_toBottomOf="@+id/btn_erreserbaData" />
 
     <TextView
         android:id="@+id/txt_kirolak"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="80dp"
         android:text="DEPORTES"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.091" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/btn_ErreserbaKirolak"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
         android:text="RESERVAR"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.044"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/spin_K4"
-        app:layout_constraintVertical_bias="0.46" />
+        app:layout_constraintTop_toBottomOf="@+id/spin_K4" />
 
     <Button
         android:id="@+id/btn_AtzeraKirolak"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
+        android:layout_marginTop="68dp"
         android:text="ATRAS"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.958"
+        app:layout_constraintHorizontal_bias="0.877"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button"
-        app:layout_constraintVertical_bias="0.829"
+        app:layout_constraintTop_toBottomOf="@+id/btn_ErreserbaKirolak"
         tools:ignore="UnknownId" />
 
     <Spinner
         android:id="@+id/spin_K1"
         android:layout_width="200dp"
         android:layout_height="70dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginTop="50dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txt_kirolak"
-        app:layout_constraintVertical_bias="0.145"/>
+        app:layout_constraintTop_toBottomOf="@+id/txt_kirolak" />
 
     <Spinner
         android:id="@+id/spin_K2"
         android:layout_width="200dp"
         android:layout_height="70dp"
-        android:layout_marginStart="104dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginTop="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/spin_K1"
-        app:layout_constraintVertical_bias="0.044" />
+        app:layout_constraintTop_toBottomOf="@+id/spin_K1" />
 
-    <Spinner
-        android:id="@+id/spin_K3"
-        android:layout_width="200dp"
-        android:layout_height="70dp"
-        android:layout_marginStart="104dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+    <ImageButton
+        android:id="@+id/btn_erreserbaData"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="28dp"
+        android:contentDescription="Selecciona Fecha"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.132"
+        app:layout_constraintStart_toEndOf="@+id/lbl_erreserbaData"
         app:layout_constraintTop_toBottomOf="@+id/spin_K2"
-        app:layout_constraintVertical_bias="0.059" />
+        app:srcCompat="@android:drawable/ic_menu_my_calendar" />
+
+    <TextView
+        android:id="@+id/lbl_erreserbaData"
+        android:layout_width="132dp"
+        android:layout_height="22dp"
+        android:layout_marginStart="108dp"
+        android:layout_marginTop="44dp"
+        android:hint="Fecha Reserva"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/spin_K2" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
