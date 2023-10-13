@@ -21,6 +21,7 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.Query;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 
@@ -33,11 +34,15 @@ import java.util.List;
 
 public class Kirolak<ApiFuture> extends AppCompatActivity implements OnItemSelectedListener {
     FirebaseFirestore db = FirebaseFirestore.getInstance();
+
+
+    Erreserba erreserba = new Erreserba();
     //aldagai globalen definizioa
     Spinner Kirolak_KirolaMota;
     Spinner Kirolak_KirolaZelai;
     Spinner Kirolak_KirolaOrdua;
 
+    Button btn_errserbaK;
     ImageButton btn_erreserbaData;
     TextView lbl_erreserbaData;
     List<String> kirolakMotak = new ArrayList<>();
@@ -54,7 +59,20 @@ public class Kirolak<ApiFuture> extends AppCompatActivity implements OnItemSelec
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_kirolak);
 
-        Button btn_errserbaK = (Button) findViewById(R.id.btn_ErreserbaKirolak);
+            db.collection("kirolak").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                if (task.isSuccessful()) {
+                    for (QueryDocumentSnapshot document : task.getResult()) {
+                        Log.d(TAG, document.getId() + " => " + document.getData());
+                    }
+                }
+            }
+        });
+
+
+        btn_errserbaK = (Button) findViewById(R.id.btn_ErreserbaKirolak);
+        btn_errserbaK.setEnabled(false);
         Button btn_atzeraK = (Button) findViewById(R.id.btn_AtzeraKirolak);
         Kirolak_KirolaMota = findViewById(R.id.spin_K1);
         Kirolak_KirolaZelai = findViewById(R.id.spin_K2);
@@ -88,7 +106,6 @@ public class Kirolak<ApiFuture> extends AppCompatActivity implements OnItemSelec
                         if (task.isSuccessful()) {
                             //Añade primer elemento para aparecer al inicio
                             kirolakMotak.add("Selecciona Deporte");
-                            KirolaMotakAdaptadorea.notifyDataSetChanged();
                             for (QueryDocumentSnapshot document : task.getResult()) {
                                 kirolakMotak.add(document.getId());
                             }
@@ -126,6 +143,7 @@ public class Kirolak<ApiFuture> extends AppCompatActivity implements OnItemSelec
     {
         String hartutakoBalioa = parent.getItemAtPosition(pos).toString();
         if(parent.getId()==R.id.spin_K1){
+            erreserba.setKirola(Kirolak_KirolaMota.getSelectedItem().toString());
             //cargar spinner
             db.collection("kirolak")
                     .document(hartutakoBalioa)
@@ -138,27 +156,36 @@ public class Kirolak<ApiFuture> extends AppCompatActivity implements OnItemSelec
                             kirolakZelaiak.clear();
                             //Añade primer elemento para aparecer al inicio
                             kirolakZelaiak.add("Selecciona Campo");
-                            KirolakZelaiakAdaptadorea.notifyDataSetChanged();
                             if (task.isSuccessful()) {
                                 for (QueryDocumentSnapshot document : task.getResult()) {
                                     Log.d(TAG, document.getId() + " => " + document.getData());
                                     kirolakZelaiak.add(document.getId());
                                 }
-                                KirolakZelaiakAdaptadorea.notifyDataSetChanged();
                             } else {
                                 Log.d(TAG, "Error getting documents: ", task.getException());
                             }
+                            KirolakZelaiakAdaptadorea.notifyDataSetChanged();
                         }
                     });
 
         }
         else if(parent.getId()==R.id.spin_K2){
+            erreserba.setZelaia(Kirolak_KirolaZelai.getSelectedItem().toString());
             kirolakOrdua.clear();
             kirolakOrdua.add("Selecciona Hora");
             kirolakOrduaAdaptadorea.notifyDataSetChanged();
             lbl_erreserbaData.setText("");
         }
+        else if(parent.getId()==R.id.spin_K4){
+            erreserba.setOrdua(hartutakoBalioa);
+            if(!Kirolak_KirolaOrdua.getSelectedItem().toString().equals("Selecciona Hora")){
+                btn_errserbaK.setEnabled(true);
+            }else{
+                btn_errserbaK.setEnabled(false);
+            }
+        }
     }
+
 
     @Override
     public void onNothingSelected(AdapterView<?> adapterView) {
@@ -168,7 +195,8 @@ public class Kirolak<ApiFuture> extends AppCompatActivity implements OnItemSelec
         DatePickerDialog datePicker = new DatePickerDialog(this, new DatePickerDialog.OnDateSetListener() {
             @Override
             public void onDateSet(DatePicker datePicker, int year, int month, int day) {
-                lbl_erreserbaData.setText(String.valueOf(day)+"/"+String.valueOf((month)+1)+"/"+String.valueOf(year));
+                lbl_erreserbaData.setText(String.valueOf(day)+"-"+String.valueOf((month)+1)+"-"+String.valueOf(year));
+                erreserba.setData(lbl_erreserbaData.getText().toString());
 
                 //Orduak lortzeko query
                 String hautatutakokirola = Kirolak_KirolaMota.getSelectedItem().toString();
@@ -189,7 +217,15 @@ public class Kirolak<ApiFuture> extends AppCompatActivity implements OnItemSelec
                                 for(int i=0;i<orduak_list.size();i++){
                                     kirolakOrdua.add(orduak_list.get(i));
                                 }
-
+                                db.collection("kirolak").document(hautatutakokirola).collection("zelaiak").document(hartutakoZelaia).collection("erreserbak").whereEqualTo("data", lbl_erreserbaData.getText().toString()).get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                                    @Override
+                                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                                        for (QueryDocumentSnapshot document : task.getResult()) {
+                                            kirolakOrdua.remove(document.getData().get("ordua"));
+                                        }
+                                        kirolakOrduaAdaptadorea.notifyDataSetChanged();
+                                    }
+                                });
                             } else {
                                 Log.d(TAG, "No such document");
                             }

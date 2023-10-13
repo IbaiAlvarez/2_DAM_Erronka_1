@@ -63,7 +63,7 @@ public class Erregistroa extends AppCompatActivity {
                                 Log.d(TAG, "createUserWithEmail:success");
                                 FirebaseUser user = mAuth.getCurrentUser();
 
-                                Pertsona pertsona = new Pertsona(txt_izen_erregistro.getText().toString(),txt_abizen_erregistro.getText().toString(),txt_email_erregistro.getText().toString(),txt_erabiltzaile_erregistro.getText().toString(),"erabiltzailea");
+                                Pertsona pertsona = new Pertsona(txt_izen_erregistro.getText().toString(),txt_abizen_erregistro.getText().toString(),txt_email_erregistro.getText().toString(),txt_erabiltzaile_erregistro.getText().toString(),"erabiltzailea","aktiboa");
 
                                 db.collection("erabiltzaileak").document(pertsona.getEmail()).set(pertsona);
 

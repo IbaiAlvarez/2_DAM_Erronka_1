@@ -7,17 +7,18 @@ public class Pertsona {
     protected String email;
     protected String erabiltzailea;
     protected  String erabiltzaile_mota;
+    protected  String egoera;
 
     public Pertsona(){
-
     }
 
-    public Pertsona(String izena,String abizena,String email,String erabiltzailea,String erabiltzaile_mota){
+    public Pertsona(String izena,String abizena,String email,String erabiltzailea,String erabiltzaile_mota,String egoera){
         this.izena=izena;
         this.abizena=abizena;
         this.email=email;
         this.erabiltzailea=erabiltzailea;
         this.erabiltzaile_mota = erabiltzaile_mota;
+        this.egoera="aktiboa";
     }
 
     //Setters
@@ -34,6 +35,7 @@ public class Pertsona {
         this.erabiltzailea = erabiltzailea;
     }
     public void setErabiltzaile_mota(String erabiltzaile_mota){this.erabiltzaile_mota=erabiltzaile_mota;}
+    public void setEgoera(String egoera){this.egoera=egoera;}
 
     //Getters
     public String getIzena() {
@@ -49,4 +51,5 @@ public class Pertsona {
         return erabiltzailea;
     }
     public String getErabiltzaile_mota(){return erabiltzaile_mota;}
+    public String getEgoera(){return egoera;}
 }
