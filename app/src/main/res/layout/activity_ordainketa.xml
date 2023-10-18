@@ -4,99 +4,19 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/black"
     tools:context=".Ordainketa">
-
-    <EditText
-        android:id="@+id/txt_urteaO"
-        android:layout_width="75dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="16dp"
-        android:width="250sp"
-        android:height="65sp"
-        android:ems="10"
-        android:hint="AÑO"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.327"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txt_dataO" />
-
-    <EditText
-        android:id="@+id/txt_HilabeteaO"
-        android:layout_width="75dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="16dp"
-        android:width="250sp"
-        android:height="65sp"
-        android:ems="10"
-        android:hint="MES"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.047"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txt_dataO" />
-
-    <EditText
-        android:id="@+id/txt_CVVO"
-        android:layout_width="250sp"
-        android:layout_height="65sp"
-        android:layout_marginTop="24dp"
-        android:width="250sp"
-        android:height="65sp"
-        android:ems="10"
-        android:hint="CVV"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.099"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txt_HilabeteaO" />
-
-    <EditText
-        android:id="@+id/txt_zenbakiTxartelaO"
-        android:layout_width="250sp"
-        android:layout_height="65sp"
-        android:layout_marginTop="20dp"
-        android:width="250sp"
-        android:height="65sp"
-        android:ems="10"
-        android:hint="Numero de tarjeta"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.099"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txt_IzenAbizenaO" />
-
-    <EditText
-        android:id="@+id/txt_IzenAbizenaO"
-        android:layout_width="250sp"
-        android:layout_height="65sp"
-        android:layout_marginTop="80dp"
-        android:width="250sp"
-        android:height="65sp"
-        android:ems="10"
-        android:hint="Nombre y apellidos"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.099"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txt_Ordaindu" />
-
-    <TextView
-        android:id="@+id/txt_Ordaindu"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="52dp"
-        android:text="Ordainketa"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/btn_ordainduO"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="130dp"
         android:text="PAGAR"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.05"
+        app:layout_constraintHorizontal_bias="0.539"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txt_CVVO" />
+        app:layout_constraintTop_toBottomOf="@+id/lbl_ordainduPrezioa" />
 
     <Button
         android:id="@+id/btn_atzeraO"
@@ -110,14 +30,73 @@
         app:layout_constraintTop_toBottomOf="@+id/btn_ordainduO" />
 
     <TextView
-        android:id="@+id/txt_dataO"
+        android:id="@+id/lbl_aukeratutakoKirola"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
-        android:text="FECHA CADUCIDAD"
+        android:layout_marginTop="80dp"
+        android:width="600px"
+        android:text="Kirola: "
+        android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.055"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txt_zenbakiTxartelaO" />
+        app:layout_constraintTop_toBottomOf="@+id/logo_ordainketa" />
+
+    <TextView
+        android:id="@+id/lbl_aukeratutakoZelaia"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:width="600px"
+        android:text="Zelaia: "
+        android:textColor="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lbl_aukeratutakoKirola" />
+
+    <TextView
+        android:id="@+id/lbl_aukeratutakoData"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:width="600px"
+        android:text="Data: "
+        android:textColor="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lbl_aukeratutakoZelaia" />
+
+    <TextView
+        android:id="@+id/lbl_aukeratutakoOrdua"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:width="600px"
+        android:text="Ordua: "
+        android:textColor="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lbl_aukeratutakoData" />
+
+    <TextView
+        android:id="@+id/lbl_ordainduPrezioa"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:width="600px"
+        android:text="Prezioa: 1000€"
+        android:textColor="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lbl_aukeratutakoOrdua" />
+
+    <ImageView
+        android:id="@+id/logo_ordainketa"
+        android:layout_width="228dp"
+        android:layout_height="70dp"
+        android:layout_marginTop="15dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/erronka_1_ikonoa" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -41,14 +41,12 @@
         app:layout_constraintVertical_bias="0.412" />
 
     <Button
-        android:id="@+id/btn_AtzeraMenuAd"
+        android:id="@+id/btn_AtzeraMenuAdm"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="ATRAS"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginTop="130dp"
+        android:text="Cerrar Sesión"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.949"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_ErreserbaK"
-        app:layout_constraintVertical_bias="0.945" />
+        app:layout_constraintTop_toBottomOf="@+id/btn_ErreserbaK" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -58,7 +58,7 @@ public class Login extends AppCompatActivity {
         EditText txt_erabiltzailea = findViewById(R.id.txt_erabiltzailea);
         EditText txt_pasahitza = findViewById(R.id.txt_pasahitza);
         Button btn_login = findViewById(R.id.btn_login);
-        btn_login.setEnabled(false);
+        //btn_login.setEnabled(false);
         TextView lbl_erregistratzea = (TextView) findViewById(R.id.lbl_erregistratzea);
 
         // getting the data which is stored in shared preferences.
@@ -135,9 +135,9 @@ public class Login extends AppCompatActivity {
             @Override
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
                 if(txt_erabiltzailea.getText().toString().equals("")){
-                    btn_login.setEnabled(false);
+                    //btn_login.setEnabled(false);
                 }else if(!txt_erabiltzailea.getText().toString().equals("") && !txt_pasahitza.getText().toString().equals("")){
-                    btn_login.setEnabled(true);
+                    //btn_login.setEnabled(true);
                 }
             }
             @Override
@@ -153,9 +153,9 @@ public class Login extends AppCompatActivity {
             @Override
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
                 if(txt_pasahitza.getText().toString().equals("")){
-                    btn_login.setEnabled(false);
+                    //btn_login.setEnabled(false);
                 }else if(!txt_erabiltzailea.getText().toString().equals("") && !txt_pasahitza.getText().toString().equals("")){
-                    btn_login.setEnabled(true);
+                    //btn_login.setEnabled(true);
                 }
             }
             @Override

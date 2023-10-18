@@ -9,6 +9,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 import android.content.SharedPreferences;
 import android.content.Context;
@@ -18,12 +19,13 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-
-import org.w3c.dom.Text;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 public class Hasiera extends AppCompatActivity {
 
     private FirebaseAuth mAuth;
+    FirebaseFirestore db = FirebaseFirestore.getInstance();
 
     // creating constant keys for shared preferences.
     public static final String SHARED_PREFS = "shared_prefs";
@@ -43,19 +45,20 @@ public class Hasiera extends AppCompatActivity {
     TextView txt_HasieraBarra;
     TextView txt_erregistroa;
     TextView lbl_hasieraErabiltzaile;
+    Button btn_erreserbaEgin;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_hasiera);
 
-
         txt_saioa = (TextView) findViewById(R.id.txt_HasieraInicio);
         txt_erregistroa = (TextView) findViewById(R.id.txt_HasieraRegistro);
         txt_HasieraBarra = (TextView) findViewById(R.id.txt_HasieraBarra);
         lbl_hasieraErabiltzaile =  (TextView) findViewById(R.id.lbl_hasieraErabiltzaile);
         lbl_saioaItxi = (TextView) findViewById(R.id.lbl_saioaItxi);
-        TextView txt_noticia = (TextView) findViewById(R.id.txt_bocetoH);
+        TextView txt_noticia = (TextView) findViewById(R.id.lbl_hasieraInfo1);
+        btn_erreserbaEgin = findViewById(R.id.btn_erreserbaEgin);
 
 
         mAuth = FirebaseAuth.getInstance();
@@ -113,7 +116,7 @@ public class Hasiera extends AppCompatActivity {
             }
         });
 
-        txt_noticia.setOnClickListener(new View.OnClickListener() {
+        btn_erreserbaEgin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(Hasiera.this, Eskaintzak.class);
@@ -126,16 +129,34 @@ public class Hasiera extends AppCompatActivity {
     //Change UI according to user data.
     public void updateUI(FirebaseUser account){
 
-        if(account != null){
-            lbl_hasieraErabiltzaile.setText("Bienvenido "+account.getEmail());
-            lbl_hasieraErabiltzaile.setVisibility(View.VISIBLE);
-            lbl_saioaItxi.setVisibility(View.VISIBLE);
-            txt_saioa.setVisibility(View.INVISIBLE);
-            txt_HasieraBarra.setVisibility(View.INVISIBLE);
-            txt_erregistroa.setVisibility(View.INVISIBLE);
+         if(account != null && !account.getEmail().equals("")){
+            db.collection("erabiltzaileak").document(account.getEmail()).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+                @Override
+                public void onComplete(@androidx.annotation.NonNull Task<DocumentSnapshot> task) {
+                    if (task.isSuccessful()) {
+                        DocumentSnapshot document = task.getResult();
+                        String erabiltzaile_mota = document.get("erabiltzaile_mota").toString();
+                        if(document.get("erabiltzaile_mota").toString().equals("administratzailea")){
+                            Intent intent = new Intent(Hasiera.this, MenuAdmin.class);
+                            startActivity(intent);
+                            finish();
+                        }else {
+                            lbl_hasieraErabiltzaile.setText("Bienvenido " + account.getEmail());
+                            lbl_hasieraErabiltzaile.setVisibility(View.VISIBLE);
+                            lbl_saioaItxi.setVisibility(View.VISIBLE);
+                            btn_erreserbaEgin.setEnabled(true);
+                            txt_saioa.setVisibility(View.INVISIBLE);
+                            txt_HasieraBarra.setVisibility(View.INVISIBLE);
+                            txt_erregistroa.setVisibility(View.INVISIBLE);
+                        }
+                    } else {
+                        Log.d(TAG, "Error getting documents: ", task.getException());
+                    }
+                }
+            });
         }
         //Anonimo bezala logeatzen da erabiltzaile bat logeatuta ez badago
-        else if(account == null){
+        else if(account == null || account.getEmail().equals("")){
             mAuth.signInAnonymously()
                     .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                         @Override
@@ -152,6 +173,7 @@ public class Hasiera extends AppCompatActivity {
                     });
             lbl_hasieraErabiltzaile.setVisibility(View.INVISIBLE);
             lbl_saioaItxi.setVisibility(View.INVISIBLE);
+            btn_erreserbaEgin.setEnabled(false);
             txt_saioa.setVisibility(View.VISIBLE);
             txt_HasieraBarra.setVisibility(View.VISIBLE);
             txt_erregistroa.setVisibility(View.VISIBLE);

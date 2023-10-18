@@ -4,85 +4,115 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/black"
     tools:context=".Hasiera">
-
-    <TextView
-        android:id="@+id/lbl_hasiera"
-        android:layout_width="62dp"
-        android:layout_height="21dp"
-        android:layout_marginTop="70dp"
-        android:text="HASIERA"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/txt_HasieraInicio"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="30dp"
         android:text="Iniciar sesion"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.625"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/lbl_hasiera"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toBottomOf="@+id/logo_hasiera" />
 
     <TextView
         android:id="@+id/txt_HasieraRegistro"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
         android:text="Registrarse"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.926"
+        app:layout_constraintHorizontal_bias="0.943"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/lbl_hasiera"
-        app:layout_constraintVertical_bias="0.038" />
+        app:layout_constraintTop_toBottomOf="@+id/logo_hasiera" />
 
     <TextView
         android:id="@+id/txt_HasieraBarra"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
         android:text="/"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.735"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/lbl_hasiera"
-        app:layout_constraintVertical_bias="0.038" />
+        app:layout_constraintTop_toBottomOf="@+id/logo_hasiera" />
 
     <TextView
-        android:id="@+id/txt_bocetoH"
+        android:id="@+id/lbl_hasieraInfo1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Noticias"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginTop="30dp"
+        android:width="750px"
+        android:height="470px"
+        android:text="Bienvenidos a VIDE, la empresa líder en la gestión de reservas de instalaciones para eventos musicales, deportivos, teatrales y cinematográficos. Con un enfoque apasionado en la creación de experiencias inolvidables, nuestro equipo se enorgullece de ofrecer soluciones personalizadas que satisfacen las necesidades únicas de nuestros clientes en la industria del entretenimiento."
+        android:textColor="@color/white"
+        android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.504"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txt_HasieraRegistro"
-        app:layout_constraintVertical_bias="0.482" />
+        app:layout_constraintTop_toBottomOf="@+id/lbl_hasieraErabiltzaile" />
 
     <TextView
         android:id="@+id/lbl_hasieraErabiltzaile"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="30dp"
         android:text="TextView"
+        android:textColor="@color/white"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/lbl_hasiera" />
+        app:layout_constraintTop_toBottomOf="@+id/logo_hasiera" />
 
     <TextView
         android:id="@+id/lbl_saioaItxi"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="30dp"
         android:text="Cerrar sesión"
+        android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.718"
+        app:layout_constraintHorizontal_bias="0.727"
         app:layout_constraintStart_toEndOf="@+id/lbl_hasieraErabiltzaile"
-        app:layout_constraintTop_toBottomOf="@+id/lbl_hasiera" />
+        app:layout_constraintTop_toBottomOf="@+id/logo_hasiera" />
+
+    <TextView
+        android:id="@+id/lbl_hasieraInfo2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:width="750px"
+        android:text="En VIDE, nos esforzamos por simplificar el proceso de reserva y coordinación de espacios, permitiendo que los organizadores se centren en lo que hacen de mejor manera: crear momentos memorables. Nuestra plataforma de vanguardia y un equipo altamente capacitado trabajan juntos para garantizar que cada evento sea un éxito. Ya sea que esté planeando un concierto emocionante, un torneo deportivo de alto nivel, una obra de teatro impactante o una producción cinematográfica de renombre, confíe en VIDE para hacer que su visión se haga realidad. Estamos aquí para hacer posible lo imposible en el mundo del entretenimiento."
+        android:textColor="@color/white"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lbl_hasieraInfo1" />
+
+    <Button
+        android:id="@+id/btn_erreserbaEgin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:text="Relizar Reserva"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lbl_hasieraInfo2" />
+
+    <ImageView
+        android:id="@+id/logo_hasiera"
+        android:layout_width="228dp"
+        android:layout_height="70dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="15dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/erronka_1_ikonoa" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

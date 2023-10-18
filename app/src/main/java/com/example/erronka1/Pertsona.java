@@ -5,18 +5,18 @@ public class Pertsona {
     protected String izena;
     protected String abizena;
     protected String email;
-    protected String erabiltzailea;
+    protected String erabiltzaile_nick;
     protected  String erabiltzaile_mota;
     protected  String egoera;
 
     public Pertsona(){
     }
 
-    public Pertsona(String izena,String abizena,String email,String erabiltzailea,String erabiltzaile_mota,String egoera){
+    public Pertsona(String izena,String abizena,String email,String erabiltzaile_nick,String erabiltzaile_mota,String egoera){
         this.izena=izena;
         this.abizena=abizena;
         this.email=email;
-        this.erabiltzailea=erabiltzailea;
+        this.erabiltzaile_nick=erabiltzaile_nick;
         this.erabiltzaile_mota = erabiltzaile_mota;
         this.egoera="aktiboa";
     }
@@ -31,9 +31,11 @@ public class Pertsona {
     public void setEmail(String email) {
         this.email = email;
     }
-    public void setErabiltzailea(String erabiltzailea) {
-        this.erabiltzailea = erabiltzailea;
+
+    public void setErabiltzaile_nick(String erabiltzaile_nick) {
+        this.erabiltzaile_nick = erabiltzaile_nick;
     }
+
     public void setErabiltzaile_mota(String erabiltzaile_mota){this.erabiltzaile_mota=erabiltzaile_mota;}
     public void setEgoera(String egoera){this.egoera=egoera;}
 
@@ -47,9 +49,11 @@ public class Pertsona {
     public String getEmail() {
         return email;
     }
-    public String getErabiltzailea() {
-        return erabiltzailea;
+
+    public String getErabiltzaile_nick() {
+        return erabiltzaile_nick;
     }
+
     public String getErabiltzaile_mota(){return erabiltzaile_mota;}
     public String getEgoera(){return egoera;}
 }

@@ -4,44 +4,59 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:backgroundTint="@color/white"
+    android:background="@color/black"
     tools:context=".Login">
 
     <EditText
         android:id="@+id/txt_erabiltzailea"
         android:layout_width="250sp"
         android:layout_height="65sp"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="70dp"
         android:width="250sp"
         android:height="65sp"
         android:ems="10"
         android:hint="Usuario"
+        android:textColor="@color/white"
+        android:textColorHint="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/lbl_empresa" />
+        app:layout_constraintTop_toBottomOf="@+id/lbl_inicioSesion" />
 
     <Button
         android:id="@+id/btn_login"
-        android:layout_width="160sp"
-        android:layout_height="55sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginTop="70dp"
-        android:text="SAIOA HASI"
+        android:text="Iniciar Sesión"
+        android:textColor="@color/black"
+        android:background="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txt_pasahitza" />
 
     <TextView
-        android:id="@+id/lbl_empresa"
+        android:id="@+id/lbl_inicioSesion"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="85dp"
+        android:layout_marginTop="30dp"
         android:text="Inicio de sesión"
+        android:textColor="@color/white"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/logo_ordainketa2" />
+
+    <ImageView
+        android:id="@+id/logo_ordainketa2"
+        android:layout_width="228dp"
+        android:layout_height="70dp"
+        android:layout_marginTop="15dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/erronka_1_ikonoa" />
 
     <EditText
         android:id="@+id/txt_pasahitza"
@@ -53,6 +68,8 @@
         android:ems="10"
         android:hint="Contraseña"
         android:inputType="textPassword"
+        android:textColor="@color/white"
+        android:textColorHint="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txt_erabiltzailea" />
@@ -63,6 +80,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
         android:text="No tienes una cuenta?"
+        android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btn_login" />

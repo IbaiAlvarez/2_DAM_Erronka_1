@@ -1,9 +1,9 @@
 package com.example.erronka1;
 
-public class Erreserba {
+import java.io.Serializable;
 
-    protected String kirola;
-    protected String zelaia;
+public class Erreserba implements Serializable {
+
     protected String data;
     protected String ordua;
     protected String erabiltzailea;
@@ -11,21 +11,13 @@ public class Erreserba {
     public Erreserba(){
     }
 
-    public Erreserba(String kirola, String zelaia, String data, String ordua, String erabiltzailea){
-        this.kirola=kirola;
-        this.zelaia=zelaia;
+    public Erreserba(String data, String ordua, String erabiltzailea){
         this.data=data;
         this.ordua=ordua;
         this.erabiltzailea=erabiltzailea;
     }
 
     //Setters
-    public void setKirola(String kirola) {
-        this.kirola = kirola;
-    }
-    public void setZelaia(String zelaia) {
-        this.zelaia = zelaia;
-    }
     public void setData(String data) {
         this.data = data;
     }
@@ -37,13 +29,6 @@ public class Erreserba {
     }
 
     //Getters
-
-    public String getKirola() {
-        return kirola;
-    }
-    public String getZelaia() {
-        return zelaia;
-    }
     public String getData() {
         return data;
     }
