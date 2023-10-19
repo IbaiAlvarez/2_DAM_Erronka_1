@@ -36,13 +36,10 @@ public class Antzerkiak extends AppCompatActivity {
         Button btn_atzeraAt = (Button) findViewById(R.id.btn_AtzeraAntzerki);
         Spinner antzerkiak = findViewById(R.id.spin_A1);
         List<String> antzerkiakList = new ArrayList<>();
-
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, antzerkiakList);
-
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         antzerkiak.setAdapter(adapter);
-
-        db.collection("anterkiak")
+        db.collection("antzerkiak")
                 .get()
                 .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
                     @Override
@@ -58,6 +55,7 @@ public class Antzerkiak extends AppCompatActivity {
                         }
                     }
                 });
+
 
         btn_errserbaAt.setOnClickListener(new View.OnClickListener() {
             @Override

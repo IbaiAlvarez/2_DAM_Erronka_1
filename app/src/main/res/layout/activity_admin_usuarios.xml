@@ -15,8 +15,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.949"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txt_AdminU"
-        app:layout_constraintVertical_bias="0.971" />
+        app:layout_constraintTop_toBottomOf="@+id/tbl_AdminU" />
 
     <TextView
         android:id="@+id/txt_AdminU"
@@ -28,5 +27,72 @@
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.136" />
+        app:layout_constraintVertical_bias="0.085" />
+
+    <TableLayout
+        android:id="@+id/tbl_AdminU"
+        android:layout_width="391dp"
+        android:layout_height="561dp"
+        android:layout_marginTop="12dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txt_AdminU">
+
+        <TableRow
+            android:id="@+id/tblR_AdminU"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/txt_emailAdminU"
+                android:layout_width="160dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Email"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/txt_erabiltzail_motaAdminU"
+                android:layout_width="131dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Tipo"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/txt_erabiltzaileAdminU"
+                android:layout_width="9dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Nick"
+                android:textSize="20sp" />
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/tblR_Dinamikoa"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/txt_emaila_AdminU"
+                android:layout_width="70dp"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:id="@+id/txt_erabiltzailea_adminU"
+                android:layout_width="135dp"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:id="@+id/txt_nick_adminU"
+                android:layout_width="92dp"
+                android:layout_height="wrap_content" />
+
+        </TableRow>
+
+    </TableLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
