@@ -28,6 +28,7 @@ public class MenuAdmin extends AppCompatActivity {
         sharedpreferences = getSharedPreferences(SHARED_PREFS, Context.MODE_PRIVATE);
 
         Button btn_AtzeraMenuAdm = findViewById(R.id.btn_AtzeraMenuAdm);
+        Button btn_ErabiltzaileakMenuAdmin = findViewById(R.id.btn_AdminU);
 
         btn_AtzeraMenuAdm.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -48,6 +49,13 @@ public class MenuAdmin extends AppCompatActivity {
                 Intent intent = new Intent(MenuAdmin.this, Login.class);
                 startActivity(intent);
                 finish();
+            }
+        });
+        btn_ErabiltzaileakMenuAdmin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MenuAdmin.this, AdminUsuarios.class);
+                startActivity(intent);
             }
         });
     }
