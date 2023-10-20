@@ -1,6 +1,7 @@
 package com.example.erronka1;
 
 import java.io.Serializable;
+import java.util.Objects;
 
 public class Erreserba implements Serializable {
 
@@ -37,5 +38,23 @@ public class Erreserba implements Serializable {
     }
     public String getErabiltzailea() {
         return erabiltzailea;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        Erreserba err = (Erreserba) o;
+        if (this.data.equals(err.data)){
+            if(this.erabiltzailea.equals(err.erabiltzailea)){
+                if(this.ordua.equals(err.ordua)){
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(data, ordua, erabiltzailea);
     }
 }

@@ -87,7 +87,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
         android:width="750px"
-        android:text="En VIDE, nos esforzamos por simplificar el proceso de reserva y coordinación de espacios, permitiendo que los organizadores se centren en lo que hacen de mejor manera: crear momentos memorables. Nuestra plataforma de vanguardia y un equipo altamente capacitado trabajan juntos para garantizar que cada evento sea un éxito. Ya sea que esté planeando un concierto emocionante, un torneo deportivo de alto nivel, una obra de teatro impactante o una producción cinematográfica de renombre, confíe en VIDE para hacer que su visión se haga realidad. Estamos aquí para hacer posible lo imposible en el mundo del entretenimiento."
+        android:text="En VIDE, nos esforzamos por simplificar el proceso de reserva y coordinación de espacios: crear momentos memorables. Nuestra plataforma de vanguardia y un equipo altamente capacitado trabajan juntos para garantizar que cada evento sea un éxito. Ya sea que esté planeando un concierto emocionante, un torneo deportivo de alto nivel, una obra de teatro impactante o una producción cinematográfica de renombre, confíe en VIDE para hacer que su visión se haga realidad."
         android:textColor="@color/white"
         android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -114,5 +114,17 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/erronka_1_ikonoa" />
+
+    <Button
+        android:id="@+id/btn_ezabatu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:backgroundTint="@android:color/holo_red_light"
+        android:editable="true"
+        android:text="Eliminar Cuenta"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_erreserbaEgin" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

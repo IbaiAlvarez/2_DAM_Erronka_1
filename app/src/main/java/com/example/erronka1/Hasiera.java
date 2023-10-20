@@ -46,6 +46,7 @@ public class Hasiera extends AppCompatActivity {
     TextView txt_erregistroa;
     TextView lbl_hasieraErabiltzaile;
     Button btn_erreserbaEgin;
+    Button btn_ezabatu;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,6 +60,7 @@ public class Hasiera extends AppCompatActivity {
         lbl_saioaItxi = (TextView) findViewById(R.id.lbl_saioaItxi);
         TextView txt_noticia = (TextView) findViewById(R.id.lbl_hasieraInfo1);
         btn_erreserbaEgin = findViewById(R.id.btn_erreserbaEgin);
+        btn_ezabatu = findViewById(R.id.btn_ezabatu);
 
 
         mAuth = FirebaseAuth.getInstance();
@@ -145,6 +147,8 @@ public class Hasiera extends AppCompatActivity {
                             lbl_hasieraErabiltzaile.setVisibility(View.VISIBLE);
                             lbl_saioaItxi.setVisibility(View.VISIBLE);
                             btn_erreserbaEgin.setEnabled(true);
+                            btn_ezabatu.setVisibility(View.VISIBLE);
+                            btn_ezabatu.setEnabled(true);
                             txt_saioa.setVisibility(View.INVISIBLE);
                             txt_HasieraBarra.setVisibility(View.INVISIBLE);
                             txt_erregistroa.setVisibility(View.INVISIBLE);
@@ -174,6 +178,8 @@ public class Hasiera extends AppCompatActivity {
             lbl_hasieraErabiltzaile.setVisibility(View.INVISIBLE);
             lbl_saioaItxi.setVisibility(View.INVISIBLE);
             btn_erreserbaEgin.setEnabled(false);
+             btn_ezabatu.setVisibility(View.INVISIBLE);
+             btn_ezabatu.setEnabled(false);
             txt_saioa.setVisibility(View.VISIBLE);
             txt_HasieraBarra.setVisibility(View.VISIBLE);
             txt_erregistroa.setVisibility(View.VISIBLE);

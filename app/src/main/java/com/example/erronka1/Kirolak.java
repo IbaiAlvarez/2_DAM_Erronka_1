@@ -33,6 +33,7 @@ import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.TextView;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Iterator;
@@ -59,9 +60,7 @@ public class Kirolak<ApiFuture> extends AppCompatActivity implements OnItemSelec
     ArrayAdapter<String> KirolaMotakAdaptadorea;
     ArrayAdapter<String> KirolakZelaiakAdaptadorea;
     ArrayAdapter<String> kirolakOrduaAdaptadorea;
-    List<Zelaia> zelaiak_froga= new ArrayList<>();
     List<Kirola> kirolak= new ArrayList<>();
-    List<Erreserba> erreserbak_froga= new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -141,8 +140,17 @@ public class Kirolak<ApiFuture> extends AppCompatActivity implements OnItemSelec
                 Intent intent = new Intent(Kirolak.this, Ordainketa.class);
                 intent.putExtra("erreserba",erreserba);
                 intent.putExtra("kirola",Kirolak_KirolaMota.getSelectedItem().toString());
+                int index = 0;
+                for(int i=0;i<kirolak.size();i++){
+                    if(kirolak.get(i).getKirol_mota().equals(Kirolak_KirolaMota.getSelectedItem().toString())){
+                        index = i;
+                    }
+                }
+                Kirola kirol_objetu = kirolak.get(index);
+                intent.putExtra("kirol_objetu", kirol_objetu);
+
                 String seleccion = Kirolak_KirolaZelai.getSelectedItem().toString();
-                intent.putExtra("zelaia",Kirolak_KirolaZelai.getSelectedItem().toString());
+                intent.putExtra("zelaia", Kirolak_KirolaZelai.getSelectedItem().toString());
                 startActivity(intent);
             }
         });
@@ -191,13 +199,17 @@ public class Kirolak<ApiFuture> extends AppCompatActivity implements OnItemSelec
                 kirolakZelaiak.add("Selecciona Campo");
                 KirolakZelaiakAdaptadorea.notifyDataSetChanged();
             }
-
+            Kirolak_KirolaZelai.setSelection(0);
+            lbl_erreserbaData.setText("Selecciona fecha");
+            Kirolak_KirolaOrdua.setSelection(0);
         }
         else if(parent.getId()==R.id.spin_K2){
             kirolakOrdua.clear();
             kirolakOrdua.add("Selecciona Hora");
             kirolakOrduaAdaptadorea.notifyDataSetChanged();
             lbl_erreserbaData.setText("Selecciona fecha");
+            Kirolak_KirolaOrdua.setSelection(0);
+
         }
         else if(parent.getId()==R.id.spin_K4){
             erreserba.setOrdua(hartutakoBalioa);
@@ -259,6 +271,7 @@ public class Kirolak<ApiFuture> extends AppCompatActivity implements OnItemSelec
                     }
                 }
                 kirolakOrduaAdaptadorea.notifyDataSetChanged();
+                Kirolak_KirolaOrdua.setSelection(0);
             }
         }, 2023, 0, 0);
         datePicker.getDatePicker().setMinDate(System.currentTimeMillis()+86400000);

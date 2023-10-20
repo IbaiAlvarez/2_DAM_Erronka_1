@@ -1,9 +1,11 @@
 package com.example.erronka1;
 
 
+import java.io.Serializable;
 import java.util.List;
+import java.util.Objects;
 
-public class Kirola {
+public class Kirola implements Serializable {
     protected  String kirol_mota;
     protected List<Zelaia> zelaiak;
 
@@ -29,5 +31,22 @@ public class Kirola {
     }
     public List<Zelaia> getZelaiak() {
         return zelaiak;
+    }
+
+
+    @Override
+    public boolean equals(Object o) {
+        Kirola kirol = (Kirola) o;
+        if(this.kirol_mota.equals(kirol.kirol_mota)){
+            if (this.zelaiak.equals(kirol.zelaiak)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(kirol_mota, zelaiak);
     }
 }
