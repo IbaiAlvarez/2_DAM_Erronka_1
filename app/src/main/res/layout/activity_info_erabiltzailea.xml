@@ -27,6 +27,7 @@
         android:layout_width="250sp"
         android:layout_height="65sp"
         android:layout_marginTop="20dp"
+        android:editable="false"
         android:ems="10"
         android:hint="Correo electrónico"
         android:inputType="textEmailAddress"
@@ -82,27 +83,13 @@
         android:id="@+id/btn_erabiltzaileAldatu"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="72dp"
         android:layout_marginTop="68dp"
         android:backgroundTint="@color/botoiKolore"
-        android:text="Cambiar"
+        android:text="Guardar cambios"
         android:textColor="@color/black"
         android:textColorHint="@color/black"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txt_erabiltzaile_InfoErabiltzaile" />
-
-    <Button
-        android:id="@+id/btn_erabiltzaileEzabatu"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="68dp"
-        android:layout_marginTop="68dp"
-        android:backgroundTint="@color/botoiKolore"
-        android:text="Eliminar"
-        android:textColor="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/btn_erabiltzaileAldatu"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txt_erabiltzaile_InfoErabiltzaile" />
 
     <Button
@@ -114,6 +101,7 @@
         android:text="Atras"
         android:textColor="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_erabiltzaileEzabatu" />
+        app:layout_constraintTop_toBottomOf="@+id/btn_erabiltzaileAldatu" />
 </androidx.constraintlayout.widget.ConstraintLayout>

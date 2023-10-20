@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/black"
     tools:context=".Erregistroa">
 
     <EditText
@@ -14,6 +15,8 @@
         android:ems="10"
         android:hint="Usuario"
         android:inputType="text"
+        android:textColor="@color/white"
+        android:textColorHint="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
@@ -24,7 +27,9 @@
         android:layout_width="142dp"
         android:layout_height="50dp"
         android:layout_marginTop="20dp"
+        android:backgroundTint="@color/botoiKolore"
         android:text="Registrarse"
+        android:textColor="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txt_pasahitza_erregistro"
@@ -36,6 +41,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="85dp"
         android:text="Registrarse"
+        android:textColor="@color/white"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -49,6 +55,7 @@
         android:ems="10"
         android:hint="Contraseña"
         android:inputType="textPassword"
+        android:textColorHint="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txt_erabiltzaile_erregistro" />
@@ -61,6 +68,8 @@
         android:ems="10"
         android:hint="Nombre"
         android:inputType="text"
+        android:textColor="@color/white"
+        android:textColorHint="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/lbl_erregistratu" />
@@ -73,6 +82,8 @@
         android:ems="10"
         android:hint="Correo electrónico"
         android:inputType="textEmailAddress"
+        android:textColor="@color/white"
+        android:textColorHint="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txt_abizen_erregistro" />
@@ -85,6 +96,8 @@
         android:ems="10"
         android:hint="Apellidos"
         android:inputType="text"
+        android:textColor="@color/white"
+        android:textColorHint="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txt_izen_erregistro" />
@@ -95,6 +108,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:text="Ya tienes una cuenta?"
+        android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btn_erregistratu_erregistroa" />

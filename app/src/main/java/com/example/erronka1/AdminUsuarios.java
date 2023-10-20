@@ -12,6 +12,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.text.TextWatcher;
 import android.util.Log;
@@ -87,6 +88,10 @@ public class AdminUsuarios extends AppCompatActivity {
                                 txt_emaila.setText(email);
                                 txt_erabiltzailea.setText(erabiltzaile_mota);
                                 txt_nick.setText(nick);
+                                txt_emaila.setTextColor(Color.WHITE);
+                                txt_nick.setTextColor(Color.WHITE);
+                                txt_erabiltzailea.setTextColor(Color.WHITE);
+
 
                                 adminTaula.addView(fila_Erabiltzaileak);
                                 txt_emaila.setOnClickListener(new View.OnClickListener() {
@@ -106,12 +111,10 @@ public class AdminUsuarios extends AppCompatActivity {
                                                     String izena = document.get("izena").toString();
                                                     String abizena = document.get("abizena").toString();
 
+                                                    Pertsona erabiltzailea = new Pertsona(izena, abizena, email, erabiltzaile_nick, erabiltzaile_mota);
+
                                                     Intent intent = new Intent(AdminUsuarios.this, InfoErabiltzailea.class);
-                                                    intent.putExtra("izena",izena);
-                                                    intent.putExtra("abizena",abizena);
-                                                    intent.putExtra("email",email);
-                                                    intent.putExtra("erabiltzaile_mota",erabiltzaile_mota);
-                                                    intent.putExtra("erabiltzaile_nick",erabiltzaile_nick);
+                                                    intent.putExtra("erabiltzailea",erabiltzailea);
                                                     startActivity(intent);
 
                                                 } else {
@@ -127,15 +130,63 @@ public class AdminUsuarios extends AppCompatActivity {
                                 txt_erabiltzailea.setOnClickListener(new View.OnClickListener() {
                                     @Override
                                     public void onClick(View view) {
-                                        Intent intent = new Intent(AdminUsuarios.this, InfoErabiltzailea.class);
-                                        startActivity(intent);
+                                        DocumentReference docRef = db.collection("erabiltzaileak").document(txt_emaila.getText().toString());
+                                        docRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+                                            @Override
+                                            public void onComplete(@androidx.annotation.NonNull Task<DocumentSnapshot> task) {
+                                                if (task.isSuccessful()) {
+                                                    Log.d(TAG, document.getData().toString());
+                                                    sharedpreferences = getSharedPreferences(SHARED_PREFS, Context.MODE_PRIVATE);
+                                                    DocumentSnapshot document = task.getResult();
+                                                    String email = document.get("email").toString();
+                                                    String erabiltzaile_mota = document.get("erabiltzaile_mota").toString();
+                                                    String erabiltzaile_nick = document.get("erabiltzaile_nick").toString();
+                                                    String izena = document.get("izena").toString();
+                                                    String abizena = document.get("abizena").toString();
+
+                                                    Pertsona erabiltzailea = new Pertsona(izena, abizena, email, erabiltzaile_nick, erabiltzaile_mota);
+
+                                                    Intent intent = new Intent(AdminUsuarios.this, InfoErabiltzailea.class);
+                                                    intent.putExtra("erabiltzailea",erabiltzailea);
+                                                    startActivity(intent);
+
+                                                } else {
+                                                    Log.d(TAG, document.getData().toString());
+                                                    Log.d(TAG, "Error getting documents: ", task.getException());
+                                                }
+                                            }
+                                        });
                                     }
                                 });
                                 txt_nick.setOnClickListener(new View.OnClickListener() {
                                     @Override
                                     public void onClick(View view) {
-                                        Intent intent = new Intent(AdminUsuarios.this, InfoErabiltzailea.class);
-                                        startActivity(intent);
+                                        DocumentReference docRef = db.collection("erabiltzaileak").document(txt_emaila.getText().toString());
+                                        docRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+                                            @Override
+                                            public void onComplete(@androidx.annotation.NonNull Task<DocumentSnapshot> task) {
+                                                if (task.isSuccessful()) {
+                                                    Log.d(TAG, document.getData().toString());
+                                                    sharedpreferences = getSharedPreferences(SHARED_PREFS, Context.MODE_PRIVATE);
+                                                    DocumentSnapshot document = task.getResult();
+                                                    String email = document.get("email").toString();
+                                                    String erabiltzaile_mota = document.get("erabiltzaile_mota").toString();
+                                                    String erabiltzaile_nick = document.get("erabiltzaile_nick").toString();
+                                                    String izena = document.get("izena").toString();
+                                                    String abizena = document.get("abizena").toString();
+
+                                                    Pertsona erabiltzailea = new Pertsona(izena, abizena, email, erabiltzaile_nick, erabiltzaile_mota);
+
+                                                    Intent intent = new Intent(AdminUsuarios.this, InfoErabiltzailea.class);
+                                                    intent.putExtra("erabiltzailea",erabiltzailea);
+                                                    startActivity(intent);
+
+                                                } else {
+                                                    Log.d(TAG, document.getData().toString());
+                                                    Log.d(TAG, "Error getting documents: ", task.getException());
+                                                }
+                                            }
+                                        });
                                     }
                                 });
                             }

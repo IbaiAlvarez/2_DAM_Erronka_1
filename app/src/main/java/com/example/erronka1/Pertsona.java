@@ -1,24 +1,24 @@
 package com.example.erronka1;
 
-public class Pertsona {
+import java.io.Serializable;
+
+public class Pertsona implements Serializable {
 
     protected String izena;
     protected String abizena;
     protected String email;
     protected String erabiltzaile_nick;
     protected  String erabiltzaile_mota;
-    protected  String egoera;
 
     public Pertsona(){
     }
 
-    public Pertsona(String izena,String abizena,String email,String erabiltzaile_nick,String erabiltzaile_mota,String egoera){
+    public Pertsona(String izena,String abizena,String email,String erabiltzaile_nick,String erabiltzaile_mota){
         this.izena=izena;
         this.abizena=abizena;
         this.email=email;
         this.erabiltzaile_nick=erabiltzaile_nick;
         this.erabiltzaile_mota = erabiltzaile_mota;
-        this.egoera="aktiboa";
     }
 
     //Setters
@@ -37,7 +37,6 @@ public class Pertsona {
     }
 
     public void setErabiltzaile_mota(String erabiltzaile_mota){this.erabiltzaile_mota=erabiltzaile_mota;}
-    public void setEgoera(String egoera){this.egoera=egoera;}
 
     //Getters
     public String getIzena() {
@@ -55,5 +54,4 @@ public class Pertsona {
     }
 
     public String getErabiltzaile_mota(){return erabiltzaile_mota;}
-    public String getEgoera(){return egoera;}
 }

@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/black"
     android:scrollbarSize="20sp"
     tools:context=".Eskaintzak">
 
@@ -13,7 +14,9 @@
         android:layout_height="48dp"
         android:layout_marginStart="44dp"
         android:layout_marginTop="180dp"
+        android:backgroundTint="@color/white"
         android:text="DEPORTES"
+        android:textColor="@color/black"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/lbl_kategoriak" />
 
@@ -22,7 +25,9 @@
         android:layout_width="146dp"
         android:layout_height="48dp"
         android:layout_marginTop="180dp"
+        android:backgroundTint="@color/white"
         android:text="MUSICA"
+        android:textColor="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/btn_kirolak"
         app:layout_constraintTop_toBottomOf="@+id/lbl_kategoriak" />
@@ -32,7 +37,9 @@
         android:layout_width="146dp"
         android:layout_height="49dp"
         android:layout_marginTop="45dp"
+        android:backgroundTint="@color/white"
         android:text="CINE"
+        android:textColor="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.478"
         app:layout_constraintStart_toEndOf="@+id/btn_antzerki"
@@ -44,7 +51,9 @@
         android:layout_height="50dp"
         android:layout_marginStart="44dp"
         android:layout_marginTop="45dp"
+        android:backgroundTint="@color/white"
         android:text="TEATRO"
+        android:textColor="@color/black"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btn_kirolak" />
 
@@ -54,6 +63,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="85dp"
         android:text="Categorias"
+        android:textColor="@color/botoiKolore"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
@@ -65,7 +75,9 @@
         android:layout_width="100sp"
         android:layout_height="55sp"
         android:layout_marginTop="100dp"
+        android:backgroundTint="@color/white"
         android:text="ATRAS"
+        android:textColor="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btn_zine" />
