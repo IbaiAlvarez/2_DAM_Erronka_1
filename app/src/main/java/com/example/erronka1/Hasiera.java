@@ -3,8 +3,10 @@ package com.example.erronka1;
 import static android.content.ContentValues.TAG;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -13,8 +15,11 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.content.SharedPreferences;
 import android.content.Context;
+import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
@@ -22,25 +27,25 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 
+
 public class Hasiera extends AppCompatActivity {
 
     private FirebaseAuth mAuth;
     FirebaseFirestore db = FirebaseFirestore.getInstance();
 
-    // creating constant keys for shared preferences.
+
+    // shared pref
+    SharedPreferences sharedpreferences;
+    // deklarazio string shared pref
     public static final String SHARED_PREFS = "shared_prefs";
 
-    // key for storing email.
+    // deklarazio strings datuak shared pref
     public static final String EMAIL_KEY = "email_key";
-
-    // key for storing password.
     public static final String PASSWORD_KEY = "password_key";
 
-    // variable for shared preferences.
-    SharedPreferences sharedpreferences;
+    //String, Button, Text view deklarazioa
     String email;
-    TextView lbl_prueba;
-    TextView txt_saioa;
+    TextView txt_LoginHasiera;
     TextView lbl_saioaItxi;
     TextView txt_HasieraBarra;
     TextView txt_erregistroa;
@@ -53,47 +58,39 @@ public class Hasiera extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_hasiera);
 
-        txt_saioa = (TextView) findViewById(R.id.txt_HasieraInicio);
+        //Hasieraketa
+        txt_LoginHasiera = (TextView) findViewById(R.id.txt_LoginHasiera);
         txt_erregistroa = (TextView) findViewById(R.id.txt_HasieraRegistro);
         txt_HasieraBarra = (TextView) findViewById(R.id.txt_HasieraBarra);
         lbl_hasieraErabiltzaile =  (TextView) findViewById(R.id.lbl_hasieraErabiltzaile);
         lbl_saioaItxi = (TextView) findViewById(R.id.lbl_saioaItxi);
-        TextView txt_noticia = (TextView) findViewById(R.id.lbl_hasieraInfo1);
         btn_erreserbaEgin = findViewById(R.id.btn_erreserbaEgin);
         btn_ezabatu = findViewById(R.id.btn_ezabatu);
 
-
+        //Authentication instantzia lortu
         mAuth = FirebaseAuth.getInstance();
-        // Check if user is signed in (non-null) and update UI accordingly.
+        //Erabiltzailea lortzen du
         FirebaseUser currentUser = mAuth.getCurrentUser();
         updateUI(currentUser);
 
-
-        // initializing our shared preferences.
+        // Hasieraketa shared pref
         sharedpreferences = getSharedPreferences(SHARED_PREFS, Context.MODE_PRIVATE);
 
-        // getting data from shared prefs and
-        // storing it in our string variable.
+        // Shared pref emaila gorde
         email = sharedpreferences.getString("email_key", "");
 
-
+        //LBL saioa itxi
         lbl_saioaItxi.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //Cierra sesion de FirebaseAuth
+                //Saioa itxi FirebaseAuth
                 mAuth.signOut();
-                // calling method to edit values in shared prefs.
+                // Editor shared pref
                 SharedPreferences.Editor editor = sharedpreferences.edit();
-
-                // below line will clear
-                // the data in shared prefs.
                 editor.clear();
-
-                // below line will apply empty
-                // data to shared prefs.
                 editor.apply();
 
-
+                //Aktibitatea freskatzen du
                 Intent intent = new Intent(Hasiera.this, Hasiera.class);
                 startActivity(intent);
                 finish();
@@ -109,7 +106,7 @@ public class Hasiera extends AppCompatActivity {
                 finish();
             }
         });
-        txt_saioa.setOnClickListener(new View.OnClickListener() {
+        txt_LoginHasiera.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(Hasiera.this, Login.class);
@@ -128,28 +125,29 @@ public class Hasiera extends AppCompatActivity {
 
     }
 
-    //Change UI according to user data.
-    public void updateUI(FirebaseUser account){
-
-         if(account != null && !account.getEmail().equals("")){
+    //UI aldatu
+    public void updateUI(FirebaseUser account) {
+        //Erabiltzailea anonimoa ez bada
+        if (account != null && !account.getEmail().equals("")) {
             db.collection("erabiltzaileak").document(account.getEmail()).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
                 @Override
                 public void onComplete(@androidx.annotation.NonNull Task<DocumentSnapshot> task) {
                     if (task.isSuccessful()) {
                         DocumentSnapshot document = task.getResult();
                         String erabiltzaile_mota = document.get("erabiltzaile_mota").toString();
-                        if(document.get("erabiltzaile_mota").toString().equals("administratzailea")){
+                        //Erabiltzailea bada admin menura bidaltzen du
+                        if (document.get("erabiltzaile_mota").toString().equals("administratzailea")) {
                             Intent intent = new Intent(Hasiera.this, MenuAdmin.class);
                             startActivity(intent);
                             finish();
-                        }else {
+                        } else {
                             lbl_hasieraErabiltzaile.setText("Bienvenido " + account.getEmail());
                             lbl_hasieraErabiltzaile.setVisibility(View.VISIBLE);
                             lbl_saioaItxi.setVisibility(View.VISIBLE);
                             btn_erreserbaEgin.setEnabled(true);
                             btn_ezabatu.setVisibility(View.VISIBLE);
                             btn_ezabatu.setEnabled(true);
-                            txt_saioa.setVisibility(View.INVISIBLE);
+                            txt_LoginHasiera.setVisibility(View.INVISIBLE);
                             txt_HasieraBarra.setVisibility(View.INVISIBLE);
                             txt_erregistroa.setVisibility(View.INVISIBLE);
                         }
@@ -160,7 +158,7 @@ public class Hasiera extends AppCompatActivity {
             });
         }
         //Anonimo bezala logeatzen da erabiltzaile bat logeatuta ez badago
-        else if(account == null || account.getEmail().equals("")){
+        else if (account == null || account.getEmail().equals("")) {
             mAuth.signInAnonymously()
                     .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                         @Override
@@ -178,12 +176,81 @@ public class Hasiera extends AppCompatActivity {
             lbl_hasieraErabiltzaile.setVisibility(View.INVISIBLE);
             lbl_saioaItxi.setVisibility(View.INVISIBLE);
             btn_erreserbaEgin.setEnabled(false);
-             btn_ezabatu.setVisibility(View.INVISIBLE);
-             btn_ezabatu.setEnabled(false);
-            txt_saioa.setVisibility(View.VISIBLE);
+            btn_ezabatu.setVisibility(View.INVISIBLE);
+            btn_ezabatu.setEnabled(false);
+            txt_LoginHasiera.setVisibility(View.VISIBLE);
             txt_HasieraBarra.setVisibility(View.VISIBLE);
             txt_erregistroa.setVisibility(View.VISIBLE);
         }
+
+        btn_ezabatu.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {// inflate the layout of the popup window
+                popUpErakutsi(account);
+            }
+        });
     }
 
+    //Berrespen leioa erakutzi
+    public void popUpErakutsi(FirebaseUser account){
+        // Crea un AlertDialog
+        AlertDialog.Builder builder = new AlertDialog.Builder(Hasiera.this);
+        builder.setTitle("Confirmar Borrado de Cuenta");
+        builder.setMessage("Esta seguro de querer eliminar su cuenta?");
+
+        // Agrega un botón "Aceptar" para cerrar el diálogo
+        builder.setPositiveButton("Aceptar", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                db.collection("erabiltzaileak").document(email).delete().addOnSuccessListener(new OnSuccessListener<Void>() {
+                            @Override
+                            public void onSuccess(Void aVoid) {
+                                account.delete().addOnCompleteListener(new OnCompleteListener<Void>() {
+                                    @Override
+                                    public void onComplete(@NonNull Task<Void> task) {
+                                        if (task.isSuccessful()) {
+                                            Toast.makeText(Hasiera.this, "La cuenta se ha eliminado correctamente.",
+                                                    Toast.LENGTH_SHORT).show();
+                                            //Saio itxi FirebaseAuth
+                                            mAuth.signOut();
+                                            SharedPreferences.Editor editor = sharedpreferences.edit();
+                                            editor.clear();
+                                            editor.apply();
+
+                                            Intent intent = new Intent(Hasiera.this, Hasiera.class);
+                                            startActivity(intent);
+                                            finish();
+                                            startActivity(getIntent());
+
+                                            //Leioa itxi
+                                            dialog.dismiss();
+                                        }
+                                    }
+                                });
+                            }
+                        })
+                        .addOnFailureListener(new OnFailureListener() {
+                            @Override
+                            public void onFailure(@NonNull Exception e) {
+                                Toast.makeText(Hasiera.this, "Error al eliminar la cuenta.",
+                                        Toast.LENGTH_SHORT).show();
+                                //Leioa itxi
+                                dialog.dismiss();
+                            }
+                        });
+
+            }
+        });
+
+        builder.setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                //Leioa itxi
+                dialog.dismiss();
+            }
+        });
+
+        // AlertDialog erakutsi
+        builder.create().show();
+    }
 }

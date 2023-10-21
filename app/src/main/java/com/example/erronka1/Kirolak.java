@@ -116,9 +116,9 @@ public class Kirolak<ApiFuture> extends AppCompatActivity implements OnItemSelec
         Kirolak_KirolaOrdua.setOnItemSelectedListener(this);
 
         //vincular adaptadores con spinner
-        KirolaMotakAdaptadorea = new ArrayAdapter<>(this, R.layout.spinner_item, kirolakMotak);
-        KirolakZelaiakAdaptadorea = new ArrayAdapter<>(this, R.layout.spinner_item, kirolakZelaiak);
-        kirolakOrduaAdaptadorea = new ArrayAdapter<>(this, R.layout.spinner_item, kirolakOrdua);
+        KirolaMotakAdaptadorea = new ArrayAdapter<>(this,  android.R.layout.simple_spinner_item, kirolakMotak);
+        KirolakZelaiakAdaptadorea = new ArrayAdapter<>(this,  android.R.layout.simple_spinner_item, kirolakZelaiak);
+        kirolakOrduaAdaptadorea = new ArrayAdapter<>(this,  android.R.layout.simple_spinner_item, kirolakOrdua);
 
         KirolaMotakAdaptadorea.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         Kirolak_KirolaMota.setAdapter(KirolaMotakAdaptadorea);
@@ -174,7 +174,9 @@ public class Kirolak<ApiFuture> extends AppCompatActivity implements OnItemSelec
     @Override
     public void onItemSelected(AdapterView<?> parent, View v, int pos, long id)
     {
-        ((TextView) parent.getChildAt(0)).setTextColor(Color.WHITE);
+        //((TextView) parent.getChildAt(0)).setTextColor(Color.WHITE);
+        //((TextView)  Kirolak_KirolaMota.getChildAt(0)).setTextColor(Color.WHITE);
+        //((TextView)  Kirolak_KirolaOrdua.getChildAt(0)).setTextColor(Color.WHITE);
 
         String hartutakoBalioa = parent.getItemAtPosition(pos).toString();
         if(parent.getId()==R.id.spin_K1){
@@ -189,7 +191,6 @@ public class Kirolak<ApiFuture> extends AppCompatActivity implements OnItemSelec
                         for(int j=0;j<kirolak.get(i).zelaiak.size();j++) {
                             kirolakZelaiak.add(kirolak.get(i).zelaiak.get(j).zelai_izena);
                         }
-                        KirolakZelaiakAdaptadorea.notifyDataSetChanged();
                     }
                 }
             }else{
@@ -197,19 +198,26 @@ public class Kirolak<ApiFuture> extends AppCompatActivity implements OnItemSelec
                 kirolakZelaiak.clear();
                 //Añade primer elemento para aparecer al inicio
                 kirolakZelaiak.add("Selecciona Campo");
+                kirolakOrdua.add("Selecciona Hora");
+                lbl_erreserbaData.setText("Selecciona fecha");
                 KirolakZelaiakAdaptadorea.notifyDataSetChanged();
+                kirolakOrduaAdaptadorea.notifyDataSetChanged();
             }
             Kirolak_KirolaZelai.setSelection(0);
             lbl_erreserbaData.setText("Selecciona fecha");
             Kirolak_KirolaOrdua.setSelection(0);
+            ((TextView)  Kirolak_KirolaMota.getChildAt(0)).setTextColor(Color.WHITE);
         }
         else if(parent.getId()==R.id.spin_K2){
-            kirolakOrdua.clear();
-            kirolakOrdua.add("Selecciona Hora");
-            kirolakOrduaAdaptadorea.notifyDataSetChanged();
-            lbl_erreserbaData.setText("Selecciona fecha");
-            Kirolak_KirolaOrdua.setSelection(0);
-
+            if(Kirolak_KirolaZelai.getSelectedItem().toString().equals("Selecciona Campo")){
+                //vaciar spinner
+                kirolakOrdua.clear();
+                //Añade primer elemento para aparecer al inicio
+                kirolakOrdua.add("Selecciona Hora");
+                lbl_erreserbaData.setText("Selecciona fecha");
+                kirolakOrduaAdaptadorea.notifyDataSetChanged();
+            }
+            ((TextView)  Kirolak_KirolaZelai.getChildAt(0)).setTextColor(Color.WHITE);
         }
         else if(parent.getId()==R.id.spin_K4){
             erreserba.setOrdua(hartutakoBalioa);
@@ -218,6 +226,8 @@ public class Kirolak<ApiFuture> extends AppCompatActivity implements OnItemSelec
             }else{
                 btn_ErreserbaKirolak.setEnabled(false);
             }
+            Kirolak_KirolaOrdua.setSelection(0);
+            ((TextView)  Kirolak_KirolaOrdua.getChildAt(0)).setTextColor(Color.WHITE);
         }
     }
 
@@ -270,7 +280,7 @@ public class Kirolak<ApiFuture> extends AppCompatActivity implements OnItemSelec
                         }
                     }
                 }
-                kirolakOrduaAdaptadorea.notifyDataSetChanged();
+                //kirolakOrduaAdaptadorea.notifyDataSetChanged();
                 Kirolak_KirolaOrdua.setSelection(0);
             }
         }, 2023, 0, 0);

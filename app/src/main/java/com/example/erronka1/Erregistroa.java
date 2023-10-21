@@ -3,7 +3,9 @@ package com.example.erronka1;
 import static androidx.constraintlayout.helper.widget.MotionEffect.TAG;
 
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -33,12 +35,26 @@ public class Erregistroa extends AppCompatActivity {
     FirebaseFirestore db = FirebaseFirestore.getInstance();
     private FirebaseAuth mAuth;
 
+    // variable for shared preferences.
+    SharedPreferences sharedpreferences;
+
+    // creating constant keys for shared preferences.
+    public static final String SHARED_PREFS = "shared_prefs";
+    // key for storing email.
+    public static final String EMAIL_KEY = "email_key";
+
+    // key for storing password.
+    public static final String PASSWORD_KEY = "password_key";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_erregistroa);
 
         mAuth = FirebaseAuth.getInstance();
+
+        // getting the data which is stored in shared preferences.
+        sharedpreferences = getSharedPreferences(SHARED_PREFS, Context.MODE_PRIVATE);
 
         EditText txt_izen_erregistro = findViewById(R.id.txt_izen_erregistro);
         EditText txt_abizen_erregistro = findViewById(R.id.txt_abizen_erregistro);
@@ -66,6 +82,16 @@ public class Erregistroa extends AppCompatActivity {
                                 Pertsona pertsona = new Pertsona(txt_izen_erregistro.getText().toString(),txt_abizen_erregistro.getText().toString(),txt_email_erregistro.getText().toString(),txt_erabiltzaile_erregistro.getText().toString(),"erabiltzailea");
 
                                 db.collection("erabiltzaileak").document(pertsona.getEmail()).set(pertsona);
+
+                                SharedPreferences.Editor editor = sharedpreferences.edit();
+
+                                // below two lines will put values for
+                                // email and password in shared preferences.
+                                editor.putString(EMAIL_KEY, txt_email_erregistro.getText().toString());
+                                editor.putString(PASSWORD_KEY, txt_pasahitza_erregistro.getText().toString());
+
+                                // to save our data with key and value.
+                                editor.apply();
 
                                 Toast.makeText(Erregistroa.this, "Registrado corectamente.",
                                         Toast.LENGTH_SHORT).show();

@@ -31,21 +31,16 @@ import org.checkerframework.checker.nullness.qual.NonNull;
 
 public class Login extends AppCompatActivity {
 
-    // Access a Cloud Firestore instance from your Activity
     FirebaseFirestore db = FirebaseFirestore.getInstance();
     private FirebaseAuth mAuth;
 
-    // variable for shared preferences.
+    // shared pref
     SharedPreferences sharedpreferences;
     String email, password;
 
-    // creating constant keys for shared preferences.
+    // deklarazio strings datuak shared pref
     public static final String SHARED_PREFS = "shared_prefs";
-
-    // key for storing email.
     public static final String EMAIL_KEY = "email_key";
-
-    // key for storing password.
     public static final String PASSWORD_KEY = "password_key";
 
     @Override
@@ -53,20 +48,18 @@ public class Login extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
+        //Authentication instantzia lortu
         mAuth = FirebaseAuth.getInstance();
 
+        //Hasieraketa
         EditText txt_erabiltzailea = findViewById(R.id.txt_erabiltzailea);
         EditText txt_pasahitza = findViewById(R.id.txt_pasahitza);
         Button btn_login = findViewById(R.id.btn_login);
-        //btn_login.setEnabled(false);
+        btn_login.setEnabled(false);
         TextView lbl_erregistratzea = (TextView) findViewById(R.id.lbl_erregistratzea);
 
-        // getting the data which is stored in shared preferences.
+        // Hasieraketa shared pref
         sharedpreferences = getSharedPreferences(SHARED_PREFS, Context.MODE_PRIVATE);
-        // in shared prefs inside get string method
-        // we are passing key value as EMAIL_KEY and
-        // default value is
-        // set to null if not present.
         email = sharedpreferences.getString("email_key", null);
         password = sharedpreferences.getString("password_key", null);
 
@@ -76,7 +69,7 @@ public class Login extends AppCompatActivity {
         btn_login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //Cierra sesion de FirebaseAuth
+                //Sioa itxi FirebaseAuth
                 mAuth.signOut();
 
                 mAuth.signInWithEmailAndPassword(txt_erabiltzailea.getText().toString(), txt_pasahitza.getText().toString())
@@ -92,12 +85,9 @@ public class Login extends AppCompatActivity {
                                                     if (task.isSuccessful()) {
                                                         SharedPreferences.Editor editor = sharedpreferences.edit();
 
-                                                        // below two lines will put values for
-                                                        // email and password in shared preferences.
+                                                        // shared pref gordetzen ditu email eta pasahitza
                                                         editor.putString(EMAIL_KEY, txt_erabiltzailea.getText().toString());
                                                         editor.putString(PASSWORD_KEY, txt_pasahitza.getText().toString());
-
-                                                        // to save our data with key and value.
                                                         editor.apply();
 
                                                         DocumentSnapshot document = task.getResult();
@@ -119,7 +109,6 @@ public class Login extends AppCompatActivity {
                                 }
                                 //Erabiltzailea okerra bada
                                 else {
-                                    // If sign in fails, display a message to the user.
                                     Toast.makeText(Login.this, "Erabiltzaile edo pasahitza okerrak.",
                                             Toast.LENGTH_SHORT).show();
                                 }
@@ -135,9 +124,9 @@ public class Login extends AppCompatActivity {
             @Override
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
                 if(txt_erabiltzailea.getText().toString().equals("")){
-                    //btn_login.setEnabled(false);
+                    btn_login.setEnabled(false);
                 }else if(!txt_erabiltzailea.getText().toString().equals("") && !txt_pasahitza.getText().toString().equals("")){
-                    //btn_login.setEnabled(true);
+                    btn_login.setEnabled(true);
                 }
             }
             @Override
@@ -153,14 +142,13 @@ public class Login extends AppCompatActivity {
             @Override
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
                 if(txt_pasahitza.getText().toString().equals("")){
-                    //btn_login.setEnabled(false);
+                    btn_login.setEnabled(false);
                 }else if(!txt_erabiltzailea.getText().toString().equals("") && !txt_pasahitza.getText().toString().equals("")){
-                    //btn_login.setEnabled(true);
+                    btn_login.setEnabled(true);
                 }
             }
             @Override
             public void afterTextChanged(Editable editable) {
-
             }
         });
 
