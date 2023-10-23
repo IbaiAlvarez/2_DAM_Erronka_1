@@ -45,16 +45,15 @@
 
     <TextView
         android:id="@+id/lbl_hasieraInfo1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
+        android:layout_width="280dp"
+        android:layout_height="180dp"
+        android:layout_marginTop="40dp"
         android:width="750px"
         android:height="470px"
         android:text="Bienvenidos a VIDE, la empresa líder en la gestión de reservas de instalaciones para eventos musicales, deportivos, teatrales y cinematográficos. Con un enfoque apasionado en la creación de experiencias inolvidables, nuestro equipo se enorgullece de ofrecer soluciones personalizadas que satisfacen las necesidades únicas de nuestros clientes en la industria del entretenimiento."
         android:textColor="@color/white"
         android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.504"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/lbl_hasieraErabiltzaile" />
 
@@ -83,9 +82,9 @@
 
     <TextView
         android:id="@+id/lbl_hasieraInfo2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
+        android:layout_width="280dp"
+        android:layout_height="200dp"
+        android:layout_marginTop="20dp"
         android:width="750px"
         android:text="En VIDE, nos esforzamos por simplificar el proceso de reserva y coordinación de espacios: crear momentos memorables. Nuestra plataforma de vanguardia y un equipo altamente capacitado trabajan juntos para garantizar que cada evento sea un éxito. Ya sea que esté planeando un concierto emocionante, un torneo deportivo de alto nivel, una obra de teatro impactante o una producción cinematográfica de renombre, confíe en VIDE para hacer que su visión se haga realidad."
         android:textColor="@color/white"
@@ -111,7 +110,7 @@
         android:layout_width="228dp"
         android:layout_height="70dp"
         android:layout_marginStart="5dp"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="20dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"

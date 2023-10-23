@@ -5,9 +5,11 @@ import static android.content.ContentValues.TAG;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -118,8 +120,13 @@ public class Hasiera extends AppCompatActivity {
         btn_erreserbaEgin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(Hasiera.this, Eskaintzak.class);
-                startActivity(intent);
+                if(email.equals("")) {
+                    Toast.makeText(Hasiera.this, "Tienes que estar registrado para realizar una reserva.",
+                            Toast.LENGTH_SHORT).show();
+                }else{
+                    Intent intent = new Intent(Hasiera.this, Eskaintzak.class);
+                    startActivity(intent);
+                }
             }
         });
 
@@ -143,8 +150,6 @@ public class Hasiera extends AppCompatActivity {
                         } else {
                             lbl_hasieraErabiltzaile.setText("Bienvenido " + account.getEmail());
                             lbl_hasieraErabiltzaile.setVisibility(View.VISIBLE);
-                            lbl_saioaItxi.setVisibility(View.VISIBLE);
-                            btn_erreserbaEgin.setEnabled(true);
                             btn_ezabatu.setVisibility(View.VISIBLE);
                             btn_ezabatu.setEnabled(true);
                             txt_LoginHasiera.setVisibility(View.INVISIBLE);
@@ -175,7 +180,6 @@ public class Hasiera extends AppCompatActivity {
                     });
             lbl_hasieraErabiltzaile.setVisibility(View.INVISIBLE);
             lbl_saioaItxi.setVisibility(View.INVISIBLE);
-            btn_erreserbaEgin.setEnabled(false);
             btn_ezabatu.setVisibility(View.INVISIBLE);
             btn_ezabatu.setEnabled(false);
             txt_LoginHasiera.setVisibility(View.VISIBLE);

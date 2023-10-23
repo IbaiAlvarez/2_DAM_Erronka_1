@@ -226,7 +226,6 @@ public class Kirolak<ApiFuture> extends AppCompatActivity implements OnItemSelec
             }else{
                 btn_ErreserbaKirolak.setEnabled(false);
             }
-            Kirolak_KirolaOrdua.setSelection(0);
             ((TextView)  Kirolak_KirolaOrdua.getChildAt(0)).setTextColor(Color.WHITE);
         }
     }

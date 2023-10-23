@@ -22,9 +22,11 @@
 
     <TableLayout
         android:id="@+id/tbl_AdminU"
-        android:layout_width="391dp"
+        android:layout_width="380dp"
         android:layout_height="561dp"
+        android:layout_marginStart="15dp"
         android:layout_marginTop="32dp"
+        android:layout_marginEnd="15dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txt_AdminU">
@@ -76,7 +78,8 @@
                 android:id="@+id/txt_emaila_AdminU"
                 android:layout_width="70dp"
                 android:layout_height="wrap_content"
-                android:textColorHighlight="@color/botoiKolore" />
+                android:textColorHighlight="@color/white"
+                android:ems="1"/>
 
             <TextView
                 android:id="@+id/txt_erabiltzailea_adminU"

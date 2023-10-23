@@ -92,6 +92,11 @@ public class AdminUsuarios extends AppCompatActivity {
                                 txt_nick.setTextColor(Color.WHITE);
                                 txt_erabiltzailea.setTextColor(Color.WHITE);
 
+                                txt_emaila.setHeight(100);
+                                txt_nick.setHeight(100);
+                                txt_erabiltzailea.setHeight(100);
+
+
 
                                 adminTaula.addView(fila_Erabiltzaileak);
                                 txt_emaila.setOnClickListener(new View.OnClickListener() {
