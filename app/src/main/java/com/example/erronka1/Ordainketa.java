@@ -1,6 +1,5 @@
 package com.example.erronka1;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -9,16 +8,15 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.QueryDocumentSnapshot;
-import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import Model.Erreserba;
+import Model.Kirola;
 
 public class Ordainketa extends AppCompatActivity {
     FirebaseFirestore db = FirebaseFirestore.getInstance();
@@ -42,10 +40,10 @@ public class Ordainketa extends AppCompatActivity {
         TextView lbl_aukeratutakoOrdua = findViewById(R.id.lbl_aukeratutakoOrdua);
         Button btn_ordainduO = findViewById(R.id.btn_ordainduO);
 
-        lbl_aukeratutakoKirola.setText("Kirola: "+kirola);
-        lbl_aukeratutakoZelaia.setText("Zelaia: "+zelaia);
-        lbl_aukeratutakoData.setText("Data: "+erreserba.data);
-        lbl_aukeratutakoOrdua.setText("Ordua: "+erreserba.ordua);
+        lbl_aukeratutakoKirola.setText("Deporte: "+kirola);
+        lbl_aukeratutakoZelaia.setText("Campo: "+zelaia);
+        lbl_aukeratutakoData.setText("Fecha: "+ erreserba.getData());
+        lbl_aukeratutakoOrdua.setText("Hora: "+ erreserba.getOrdua());
 
         btn_atzeraO.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -67,14 +65,14 @@ public class Ordainketa extends AppCompatActivity {
                         Kirola kirol_obj_query = documentSnapshot.toObject(Kirola.class);
                         if (kirol_obj_query.getKirol_mota().equals(kirol_objetu.getKirol_mota())) {
                              if(kirol_obj_query.equals(kirol_objetu)) {
-                                for (int j = 0; j < kirol_objetu.zelaiak.size(); j++) {
-                                    if (kirol_objetu.zelaiak.get(j).zelai_izena.equals(zelaia)) {
-                                        if(kirol_objetu.zelaiak.get(j).erreserbak==null){
+                                for (int j = 0; j < kirol_objetu.getZelaiak().size(); j++) {
+                                    if (kirol_objetu.getZelaiak().get(j).getZelai_izena().equals(zelaia)) {
+                                        if(kirol_objetu.getZelaiak().get(j).getErreserbak() ==null){
                                             List<Erreserba> erreserbak = new ArrayList<Erreserba>();
                                             erreserbak.add(erreserba);
-                                            kirol_objetu.zelaiak.get(j).setErreserbak(erreserbak);
+                                            kirol_objetu.getZelaiak().get(j).setErreserbak(erreserbak);
                                         }else {
-                                            kirol_objetu.zelaiak.get(j).erreserbak.add(erreserba);
+                                            kirol_objetu.getZelaiak().get(j).getErreserbak().add(erreserba);
                                         }
                                     }
                                 }

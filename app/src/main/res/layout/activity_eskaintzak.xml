@@ -8,12 +8,22 @@
     android:scrollbarSize="20sp"
     tools:context=".Eskaintzak">
 
+    <ImageView
+        android:id="@+id/logo_erregistro2"
+        android:layout_width="228dp"
+        android:layout_height="70dp"
+        android:layout_marginTop="15dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/erronka_1_ikonoa" />
+
     <Button
         android:id="@+id/btn_kirolak"
         android:layout_width="143dp"
         android:layout_height="48dp"
         android:layout_marginStart="44dp"
-        android:layout_marginTop="180dp"
+        android:layout_marginTop="130dp"
         android:backgroundTint="@color/white"
         android:text="DEPORTES"
         android:textColor="@color/black"
@@ -24,7 +34,7 @@
         android:id="@+id/btn_musika"
         android:layout_width="146dp"
         android:layout_height="48dp"
-        android:layout_marginTop="180dp"
+        android:layout_marginTop="130dp"
         android:backgroundTint="@color/white"
         android:text="MUSICA"
         android:textColor="@color/black"
@@ -61,14 +71,14 @@
         android:id="@+id/lbl_kategoriak"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="85dp"
+        android:layout_marginTop="40dp"
         android:text="Categorias"
         android:textColor="@color/botoiKolore"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/logo_erregistro2" />
 
     <Button
         android:id="@+id/btn_atzera_kategoriak"

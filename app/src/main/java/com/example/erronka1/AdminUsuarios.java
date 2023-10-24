@@ -2,8 +2,6 @@ package com.example.erronka1;
 
 import static android.content.ContentValues.TAG;
 
-import static com.example.erronka1.Login.EMAIL_KEY;
-import static com.example.erronka1.Login.PASSWORD_KEY;
 import static com.example.erronka1.Login.SHARED_PREFS;
 
 import androidx.annotation.NonNull;
@@ -14,12 +12,9 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
-import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
@@ -32,8 +27,7 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 
-import java.util.ArrayList;
-import java.util.List;
+import Model.Pertsona;
 
 public class AdminUsuarios extends AppCompatActivity {
     FirebaseFirestore db = FirebaseFirestore.getInstance();

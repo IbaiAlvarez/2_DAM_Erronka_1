@@ -85,4 +85,14 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btn_login" />
 
+    <ImageView
+        android:id="@+id/etxea_ikono_login"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="28dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/logo_ordainketa2"
+        app:srcCompat="@drawable/casa_icono" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

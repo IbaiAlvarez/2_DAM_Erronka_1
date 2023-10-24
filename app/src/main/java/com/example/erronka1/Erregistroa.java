@@ -13,6 +13,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -26,7 +27,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.FirebaseFirestore;
 
-import org.w3c.dom.Text;
+import Model.Pertsona;
 
 public class Erregistroa extends AppCompatActivity {
 
@@ -56,6 +57,7 @@ public class Erregistroa extends AppCompatActivity {
         // getting the data which is stored in shared preferences.
         sharedpreferences = getSharedPreferences(SHARED_PREFS, Context.MODE_PRIVATE);
 
+        ImageView etxea_ikono_erregistro = (ImageView) findViewById(R.id.etxea_ikono_erregistro);
         EditText txt_izen_erregistro = findViewById(R.id.txt_izen_erregistro);
         EditText txt_abizen_erregistro = findViewById(R.id.txt_abizen_erregistro);
         EditText txt_email_erregistro = findViewById(R.id.txt_email_erregistro);
@@ -64,6 +66,15 @@ public class Erregistroa extends AppCompatActivity {
         Button btn_erregistratu_erregistroa = findViewById(R.id.btn_erregistratu_erregistroa);
         btn_erregistratu_erregistroa.setEnabled(false);
         TextView lbl_logeatzea = findViewById(R.id.lbl_logeatzea);
+
+
+        etxea_ikono_erregistro.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(Erregistroa.this, Hasiera.class);
+                startActivity(intent);
+            }
+        });
 
         btn_erregistratu_erregistroa.setOnClickListener(new View.OnClickListener() {
             @Override

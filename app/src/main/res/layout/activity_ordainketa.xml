@@ -9,29 +9,29 @@
 
     <Button
         android:id="@+id/btn_ordainduO"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="130dp"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="124dp"
+        android:layout_marginEnd="68dp"
         android:backgroundTint="@color/botoiKolore"
         android:text="PAGAR"
         android:textColor="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.539"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/btn_atzeraO"
         app:layout_constraintTop_toBottomOf="@+id/lbl_ordainduPrezioa" />
 
     <Button
         android:id="@+id/btn_atzeraO"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="28dp"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="68dp"
+        android:layout_marginTop="124dp"
         android:backgroundTint="@color/botoiKolore"
         android:text="ATRAS"
         android:textColor="@color/black"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.949"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_ordainduO" />
+        app:layout_constraintTop_toBottomOf="@+id/lbl_ordainduPrezioa" />
 
     <TextView
         android:id="@+id/lbl_aukeratutakoKirola"
@@ -39,8 +39,9 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="80dp"
         android:width="600px"
-        android:text="Kirola: "
+        android:text="Deporte: "
         android:textColor="@color/white"
+        android:textSize="20dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/logo_ordainketa" />
@@ -51,8 +52,9 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
         android:width="600px"
-        android:text="Zelaia: "
+        android:text="Campo: "
         android:textColor="@color/white"
+        android:textSize="20dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/lbl_aukeratutakoKirola" />
@@ -63,8 +65,9 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
         android:width="600px"
-        android:text="Data: "
+        android:text="Fecha: "
         android:textColor="@color/white"
+        android:textSize="20dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/lbl_aukeratutakoZelaia" />
@@ -75,8 +78,9 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
         android:width="600px"
-        android:text="Ordua: "
+        android:text="Hora: "
         android:textColor="@color/white"
+        android:textSize="20dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/lbl_aukeratutakoData" />
@@ -87,8 +91,9 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
         android:width="600px"
-        android:text="Prezioa: 1000€"
+        android:text="Precio: 1000€"
         android:textColor="@color/white"
+        android:textSize="20dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/lbl_aukeratutakoOrdua" />

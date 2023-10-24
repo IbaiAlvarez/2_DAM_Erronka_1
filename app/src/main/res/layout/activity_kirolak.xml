@@ -33,7 +33,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="50dp"
+        android:backgroundTint="@color/white"
         android:text="RESERVAR"
+        android:textColor="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/spin_K4" />
@@ -43,7 +45,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="68dp"
+        android:backgroundTint="@color/white"
         android:text="ATRAS"
+        android:textColor="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.877"
         app:layout_constraintStart_toStartOf="parent"
@@ -79,11 +83,14 @@
         android:layout_height="50dp"
         android:layout_marginTop="28dp"
         android:contentDescription="Selecciona Fecha"
+        android:scaleType="fitCenter"
+        android:scaleX="1.25"
+        android:scaleY="1.25"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.012"
         app:layout_constraintStart_toEndOf="@+id/lbl_erreserbaData"
         app:layout_constraintTop_toBottomOf="@+id/spin_K2"
-        app:srcCompat="@android:drawable/ic_menu_my_calendar" />
+        app:srcCompat="@drawable/kalendario_ikono" />
 
     <TextView
         android:id="@+id/lbl_erreserbaData"

@@ -1,16 +1,12 @@
 package com.example.erronka1;
 
-import static android.content.ContentValues.TAG;
-
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -22,10 +18,7 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.firestore.DocumentReference;
-import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.Query;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 
@@ -33,12 +26,11 @@ import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.TextView;
 
-import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Iterator;
 import java.util.List;
-import java.util.ListIterator;
+
+import Model.Erreserba;
+import Model.Kirola;
 
 public class Kirolak<ApiFuture> extends AppCompatActivity implements OnItemSelectedListener {
     FirebaseFirestore db = FirebaseFirestore.getInstance();
@@ -64,24 +56,8 @@ public class Kirolak<ApiFuture> extends AppCompatActivity implements OnItemSelec
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_kirolak);
-
-            /*List<String> orduak_froga = new ArrayList<String>();
-            orduak_froga.add("9:30");
-            orduak_froga.add("11:30");
-            orduak_froga.add("13:30");
-            orduak_froga.add("15:30");
-            orduak_froga.add("17:30");
-            Zelaia zelai_froga = new Zelaia();
-            zelai_froga.setZelai_izena("Polideportivo San Ignacio");
-            zelai_froga.setOrduak(orduak_froga);
-            zelaiak_froga.add(zelai_froga);
-            Kirola kirol_froga = new Kirola("Pelota Mano",zelaiak_froga);
-
-            db.collection("kirolak").document("Pelota Mano").set(kirol_froga);*/
-
 
             db.collection("kirolak").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
             @Override
@@ -94,12 +70,12 @@ public class Kirolak<ApiFuture> extends AppCompatActivity implements OnItemSelec
                     //Añade primer elemento para aparecer al inicio
                     kirolakMotak.add("Selecciona Deporte");
                     for(int i=0;i<kirolak.size();i++){
-                        kirolakMotak.add(kirolak.get(i).kirol_mota);
+                        kirolakMotak.add(kirolak.get(i).getKirol_mota());
                     }
                     KirolaMotakAdaptadorea.notifyDataSetChanged();
                 }
             }
-        });
+            });
 
 
         btn_ErreserbaKirolak = (Button) findViewById(R.id.btn_ErreserbaKirolak);
@@ -187,9 +163,9 @@ public class Kirolak<ApiFuture> extends AppCompatActivity implements OnItemSelec
                 kirolakZelaiak.add("Selecciona Campo");
                 //Carga los campos del deporte seleccionado
                 for(int i=0;i<kirolak.size();i++){
-                    if(kirolak.get(i).kirol_mota.equals(Kirolak_KirolaMota.getSelectedItem().toString())){
-                        for(int j=0;j<kirolak.get(i).zelaiak.size();j++) {
-                            kirolakZelaiak.add(kirolak.get(i).zelaiak.get(j).zelai_izena);
+                    if(kirolak.get(i).getKirol_mota().equals(Kirolak_KirolaMota.getSelectedItem().toString())){
+                        for(int j = 0; j< kirolak.get(i).getZelaiak().size(); j++) {
+                            kirolakZelaiak.add(kirolak.get(i).getZelaiak().get(j).getZelai_izena());
                         }
                     }
                 }
@@ -253,11 +229,11 @@ public class Kirolak<ApiFuture> extends AppCompatActivity implements OnItemSelec
                 kirolakOrdua.add("Selecciona Hora");
                 //Orduak kargatzen ditu
                 for(int i=0;i<kirolak.size();i++){
-                    if(kirolak.get(i).kirol_mota.equals(Kirolak_KirolaMota.getSelectedItem().toString())){
-                        for(int j=0;j<kirolak.get(i).zelaiak.size();j++) {
-                            if(kirolak.get(i).zelaiak.get(j).zelai_izena.equals(hartutakoZelaia)) {
-                                for(int k=0;k<kirolak.get(i).zelaiak.get(j).orduak.size();k++) {
-                                    kirolakOrdua.add(kirolak.get(i).zelaiak.get(j).orduak.get(k));
+                    if(kirolak.get(i).getKirol_mota().equals(Kirolak_KirolaMota.getSelectedItem().toString())){
+                        for(int j = 0; j< kirolak.get(i).getZelaiak().size(); j++) {
+                            if(kirolak.get(i).getZelaiak().get(j).getZelai_izena().equals(hartutakoZelaia)) {
+                                for(int k = 0; k< kirolak.get(i).getZelaiak().get(j).getOrduak().size(); k++) {
+                                    kirolakOrdua.add(kirolak.get(i).getZelaiak().get(j).getOrduak().get(k));
                                 }
                             }
                         }
@@ -265,13 +241,13 @@ public class Kirolak<ApiFuture> extends AppCompatActivity implements OnItemSelec
                 }
                 //Erreserba bat badago egun horretan ordua kentzen du
                 for(int i=0;i<kirolak.size();i++){
-                    if(kirolak.get(i).kirol_mota.equals(Kirolak_KirolaMota.getSelectedItem().toString())){
-                        for(int j=0;j<kirolak.get(i).zelaiak.size();j++) {
-                            if(kirolak.get(i).zelaiak.get(j).zelai_izena.equals(hartutakoZelaia)) {
-                                if(kirolak.get(i).zelaiak.get(j).erreserbak != null) {
-                                    for (int k = 0; k < kirolak.get(i).zelaiak.get(j).erreserbak.size(); k++) {
-                                        if (kirolak.get(i).zelaiak.get(j).erreserbak.get(k).data.equals(lbl_erreserbaData.getText().toString())) {
-                                            kirolakOrdua.remove(kirolak.get(i).zelaiak.get(j).erreserbak.get(k).ordua);
+                    if(kirolak.get(i).getKirol_mota().equals(Kirolak_KirolaMota.getSelectedItem().toString())){
+                        for(int j = 0; j< kirolak.get(i).getZelaiak().size(); j++) {
+                            if(kirolak.get(i).getZelaiak().get(j).getZelai_izena().equals(hartutakoZelaia)) {
+                                if(kirolak.get(i).getZelaiak().get(j).getErreserbak() != null) {
+                                    for (int k = 0; k < kirolak.get(i).getZelaiak().get(j).getErreserbak().size(); k++) {
+                                        if (kirolak.get(i).getZelaiak().get(j).getErreserbak().get(k).getData().equals(lbl_erreserbaData.getText().toString())) {
+                                            kirolakOrdua.remove(kirolak.get(i).getZelaiak().get(j).getErreserbak().get(k).getOrdua());
                                         }
                                     }
                                 }

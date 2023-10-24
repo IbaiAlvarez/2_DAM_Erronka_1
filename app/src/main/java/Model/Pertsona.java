@@ -1,4 +1,4 @@
-package com.example.erronka1;
+package Model;
 
 import java.io.Serializable;
 

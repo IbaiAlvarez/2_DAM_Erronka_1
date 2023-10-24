@@ -5,6 +5,7 @@ import static android.content.ContentValues.TAG;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.media.Image;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -12,6 +13,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.content.SharedPreferences;
@@ -57,6 +59,7 @@ public class Login extends AppCompatActivity {
         Button btn_login = findViewById(R.id.btn_login);
         btn_login.setEnabled(false);
         TextView lbl_erregistratzea = (TextView) findViewById(R.id.lbl_erregistratzea);
+        ImageView etxea_ikono_login = (ImageView) findViewById(R.id.etxea_ikono_login);
 
         // Hasieraketa shared pref
         sharedpreferences = getSharedPreferences(SHARED_PREFS, Context.MODE_PRIVATE);
@@ -65,6 +68,15 @@ public class Login extends AppCompatActivity {
 
         txt_erabiltzailea.setText(sharedpreferences.getString("email_key", "").toString());
         txt_pasahitza.setText(sharedpreferences.getString("password_key", "").toString());
+
+
+        etxea_ikono_login.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(Login.this,Hasiera.class);
+                startActivity(intent);
+            }
+        });
 
         btn_login.setOnClickListener(new View.OnClickListener() {
             @Override

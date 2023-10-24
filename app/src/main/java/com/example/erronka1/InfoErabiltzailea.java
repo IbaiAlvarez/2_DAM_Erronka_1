@@ -1,26 +1,18 @@
 package com.example.erronka1;
 
-import static androidx.constraintlayout.helper.widget.MotionEffect.TAG;
-
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Toast;
 
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.android.gms.tasks.Task;
-import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.FirebaseFirestore;
+
+import Model.Pertsona;
 
 public class InfoErabiltzailea extends AppCompatActivity {
 
@@ -45,20 +37,20 @@ public class InfoErabiltzailea extends AppCompatActivity {
         EditText txt_abizen_InfoErabiltzaile = findViewById(R.id.txt_abizen_InfoErabiltzaile);
         EditText txt_erabiltzaile_InfoErabiltzaile = findViewById(R.id.txt_erabiltzaile_InfoErabiltzaile);
 
-        txt_izen_InfoErabiltzaile.setText(erabiltzailea.izena);
-        txt_abizen_InfoErabiltzaile.setText(erabiltzailea.abizena);
-        txt_email_InfoErabiltzailea.setText(erabiltzailea.email);
+        txt_izen_InfoErabiltzaile.setText(erabiltzailea.getIzena());
+        txt_abizen_InfoErabiltzaile.setText(erabiltzailea.getAbizena());
+        txt_email_InfoErabiltzailea.setText(erabiltzailea.getEmail());
         txt_email_InfoErabiltzailea.setEnabled(false);
-        txt_erabiltzaile_InfoErabiltzaile.setText(erabiltzailea.erabiltzaile_nick);
+        txt_erabiltzaile_InfoErabiltzaile.setText(erabiltzailea.getErabiltzaile_nick());
         btn_erabiltzaileAldatu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                  erabiltzailea.setIzena(txt_izen_InfoErabiltzaile.getText().toString());
                  erabiltzailea.setAbizena(txt_abizen_InfoErabiltzaile.getText().toString());
                  erabiltzailea.setErabiltzaile_nick(txt_erabiltzaile_InfoErabiltzaile.getText().toString());
-                db.collection("erabiltzaileak").document(erabiltzailea.email).set(erabiltzailea);
-                Intent intent = new Intent(InfoErabiltzailea.this, AdminUsuarios.class);
-                startActivity(intent);
+                 db.collection("erabiltzaileak").document(erabiltzailea.getEmail()).set(erabiltzailea);
+                 Intent intent = new Intent(InfoErabiltzailea.this, AdminUsuarios.class);
+                 startActivity(intent);
             }
         });
         btn_AtzeraInfo.setOnClickListener(new View.OnClickListener() {
