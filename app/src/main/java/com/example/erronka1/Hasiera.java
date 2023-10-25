@@ -67,36 +67,6 @@ public class Hasiera extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_hasiera);
-        db.collection("kirolak").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
-            @Override
-            public void onComplete(@NonNull Task<QuerySnapshot> task) {
-                if (task.isSuccessful()) {
-                    List<Kirola> kirolak = new ArrayList<Kirola>();
-                    for (QueryDocumentSnapshot document : task.getResult()) {
-                        Kirola kirola = document.toObject(Kirola.class);
-                        if(kirola.getKirol_mota().equals("Baloncesto")){
-                            List<String> orduak_froga = new ArrayList<String>();
-                            orduak_froga.add("9:30");
-                            orduak_froga.add("11:30");
-                            orduak_froga.add("15:30");
-                            orduak_froga.add("17:30");
-                            Zelaia zelai_froga = new Zelaia();
-                            zelai_froga.setZelai_izena("Maiona");
-                            zelai_froga.setOrduak(orduak_froga);
-                            kirola.getZelaiak().add(zelai_froga);
-                        }
-                        kirolak.add(kirola);
-                    }
-
-                    for(int i=0;i<kirolak.size();i++){
-                        if(kirolak.get(i).getKirol_mota().equals("Baloncesto")){
-                            db.collection("kirolak").document("Baloncesto").set(kirolak.get(i));
-                        }
-                    }
-                }
-
-            }
-        });
 
         //Hasieraketa
         txt_LoginHasiera = (TextView) findViewById(R.id.txt_LoginHasiera);
