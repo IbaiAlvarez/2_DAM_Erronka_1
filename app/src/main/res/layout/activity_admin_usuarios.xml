@@ -7,6 +7,16 @@
     android:background="@color/black"
     tools:context=".AdminUsuarios">
 
+    <ImageView
+        android:id="@+id/logo_erregistro4"
+        android:layout_width="228dp"
+        android:layout_height="70dp"
+        android:layout_marginTop="15dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/erronka_1_ikonoa" />
+
     <Button
         android:id="@+id/btn_AtzeraAdminU"
         android:layout_width="wrap_content"
@@ -23,7 +33,7 @@
     <TableLayout
         android:id="@+id/tbl_AdminU"
         android:layout_width="380dp"
-        android:layout_height="561dp"
+        android:layout_height="500dp"
         android:layout_marginStart="15dp"
         android:layout_marginTop="32dp"
         android:layout_marginEnd="15dp"
@@ -78,8 +88,8 @@
                 android:id="@+id/txt_emaila_AdminU"
                 android:layout_width="70dp"
                 android:layout_height="wrap_content"
-                android:textColorHighlight="@color/white"
-                android:ems="1"/>
+                android:ems="1"
+                android:textColorHighlight="@color/white" />
 
             <TextView
                 android:id="@+id/txt_erabiltzailea_adminU"
@@ -101,13 +111,13 @@
         android:id="@+id/txt_AdminU"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
         android:text="ADMIN USUARIOS"
         android:textColor="@color/white"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.481"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.068" />
+        app:layout_constraintTop_toBottomOf="@+id/logo_erregistro4" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
