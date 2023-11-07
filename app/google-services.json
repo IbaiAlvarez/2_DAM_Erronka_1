@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "38366426978",
+    "project_id": "froga-55f08",
+    "storage_bucket": "froga-55f08.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:38366426978:android:c055daeef6186f2b8d1e3b",
+        "android_client_info": {
+          "package_name": "com.example.erronka1"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyANRFtxcrPU6GakUWKLIw0CCPT17QKjOog"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

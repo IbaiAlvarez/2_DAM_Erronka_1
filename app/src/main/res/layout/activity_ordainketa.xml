@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/black"
+    tools:context=".Ordainketa">
+
+    <TextView
+        android:id="@+id/lbl_pago"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:text="PAGO"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.481"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/logo_ordainketa" />
+
+    <Button
+        android:id="@+id/btn_ordainduO"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="110dp"
+        android:layout_marginEnd="68dp"
+        android:backgroundTint="@color/botoiKolore"
+        android:text="PAGAR"
+        android:textColor="@color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/btn_atzeraO"
+        app:layout_constraintTop_toBottomOf="@+id/lbl_ordainduPrezioa" />
+
+    <Button
+        android:id="@+id/btn_atzeraO"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="68dp"
+        android:layout_marginTop="110dp"
+        android:backgroundTint="@color/botoiKolore"
+        android:text="ATRAS"
+        android:textColor="@color/black"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lbl_ordainduPrezioa" />
+
+    <TextView
+        android:id="@+id/lbl_aukeratutakoKirola"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:width="600px"
+        android:text="Deporte: "
+        android:textColor="@color/white"
+        android:textSize="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lbl_pago" />
+
+    <TextView
+        android:id="@+id/lbl_aukeratutakoZelaia"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:width="600px"
+        android:text="Campo: "
+        android:textColor="@color/white"
+        android:textSize="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lbl_aukeratutakoKirola" />
+
+    <TextView
+        android:id="@+id/lbl_aukeratutakoData"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:width="600px"
+        android:text="Fecha: "
+        android:textColor="@color/white"
+        android:textSize="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lbl_aukeratutakoZelaia" />
+
+    <TextView
+        android:id="@+id/lbl_aukeratutakoOrdua"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:width="600px"
+        android:text="Hora: "
+        android:textColor="@color/white"
+        android:textSize="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lbl_aukeratutakoData" />
+
+    <TextView
+        android:id="@+id/lbl_ordainduPrezioa"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:width="600px"
+        android:text="Precio: 1000€"
+        android:textColor="@color/white"
+        android:textSize="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lbl_aukeratutakoOrdua" />
+
+    <ImageView
+        android:id="@+id/logo_ordainketa"
+        android:layout_width="228dp"
+        android:layout_height="70dp"
+        android:layout_marginTop="15dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/erronka_1_ikonoa" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

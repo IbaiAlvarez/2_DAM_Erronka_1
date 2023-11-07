@@ -4,85 +4,128 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/black"
     tools:context=".Hasiera">
 
-    <EditText
-        android:id="@+id/edt_erabiltzaiela"
+    <TextView
+        android:id="@+id/txt_LoginHasiera"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="41dp"
-        android:layout_marginTop="155dp"
-        android:ems="10"
+        android:layout_marginTop="30dp"
+        android:text="Iniciar sesion"
+        android:textColor="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.625"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <EditText
-        android:id="@+id/edt_pasahitza"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="303dp"
-        android:layout_marginBottom="84dp"
-        android:ems="10"
-        android:inputType="text"
-        app:layout_constraintBottom_toTopOf="@+id/btn_registrar"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/logo_hasiera" />
 
     <TextView
-        android:id="@+id/erabiltzailea"
+        android:id="@+id/txt_HasieraRegistro"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="3dp"
-        android:layout_marginBottom="23dp"
-        android:text="ERABILTZAIELA"
-        app:layout_constraintBottom_toTopOf="@+id/edt_erabiltzaiela"
-        app:layout_constraintStart_toStartOf="@+id/edt_erabiltzaiela" />
+        android:layout_marginTop="30dp"
+        android:text="Registrarse"
+        android:textColor="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.943"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/logo_hasiera" />
 
     <TextView
-        android:id="@+id/pasahitza"
+        android:id="@+id/txt_HasieraBarra"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="1dp"
-        android:layout_marginBottom="15dp"
-        android:text="PASAHITZA"
-        app:layout_constraintBottom_toTopOf="@+id/edt_pasahitza"
-        app:layout_constraintStart_toStartOf="@+id/edt_pasahitza" />
+        android:layout_marginTop="30dp"
+        android:text="/"
+        android:textColor="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.735"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/logo_hasiera" />
 
-    <Button
-        android:id="@+id/btn_iniciar"
-        android:layout_width="149dp"
-        android:layout_height="48dp"
+    <TextView
+        android:id="@+id/lbl_hasieraInfo1"
+        android:layout_width="280dp"
+        android:layout_height="180dp"
+        android:layout_marginTop="40dp"
+        android:width="750px"
+        android:height="470px"
+        android:text="Bienvenidos a VIDE, la empresa líder en la gestión de reservas de instalaciones para eventos musicales, deportivos, teatrales y cinematográficos. Con un enfoque apasionado en la creación de experiencias inolvidables, nuestro equipo se enorgullece de ofrecer soluciones personalizadas que satisfacen las necesidades únicas de nuestros clientes en la industria del entretenimiento."
+        android:textColor="@color/white"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lbl_hasieraErabiltzaile" />
+
+    <TextView
+        android:id="@+id/lbl_hasieraErabiltzaile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="432dp"
-        android:layout_marginEnd="72dp"
-        android:layout_marginBottom="123dp"
-        android:text="SAIOA HASI"
-        app:layout_constraintBottom_toTopOf="@+id/btn_ofertas"
-        app:layout_constraintEnd_toStartOf="@+id/btn_registrar"
+        android:layout_marginTop="30dp"
+        android:text="TextView"
+        android:textColor="@color/white"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/logo_hasiera" />
+
+    <TextView
+        android:id="@+id/lbl_saioaItxi"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:text="Cerrar sesión"
+        android:textColor="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.727"
+        app:layout_constraintStart_toEndOf="@+id/lbl_hasieraErabiltzaile"
+        app:layout_constraintTop_toBottomOf="@+id/logo_hasiera" />
+
+    <TextView
+        android:id="@+id/lbl_hasieraInfo2"
+        android:layout_width="280dp"
+        android:layout_height="200dp"
+        android:layout_marginTop="20dp"
+        android:width="750px"
+        android:text="En VIDE, nos esforzamos por simplificar el proceso de reserva y coordinación de espacios: crear momentos memorables. Nuestra plataforma de vanguardia y un equipo altamente capacitado trabajan juntos para garantizar que cada evento sea un éxito. Ya sea que esté planeando un concierto emocionante, un torneo deportivo de alto nivel, una obra de teatro impactante o una producción cinematográfica de renombre, confíe en VIDE para hacer que su visión se haga realidad."
+        android:textColor="@color/white"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lbl_hasieraInfo1" />
 
     <Button
-        android:id="@+id/btn_registrar"
-        android:layout_width="157dp"
-        android:layout_height="48dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="251dp"
-        android:text="ERREGISTRATU"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/btn_iniciar"
-        app:layout_constraintTop_toBottomOf="@+id/edt_pasahitza" />
-
-    <Button
-        android:id="@+id/btn_ofertas"
-        android:layout_width="139dp"
-        android:layout_height="0dp"
-        android:layout_marginBottom="47dp"
-        android:text="ESKAINTZAK"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:id="@+id/btn_erreserbaEgin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:backgroundTint="@color/botoiKolore"
+        android:text="Relizar Reserva"
+        android:textColor="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_iniciar" />
+        app:layout_constraintTop_toBottomOf="@+id/lbl_hasieraInfo2" />
+
+    <ImageView
+        android:id="@+id/logo_hasiera"
+        android:layout_width="228dp"
+        android:layout_height="70dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/erronka_1_ikonoa" />
+
+    <Button
+        android:id="@+id/btn_ezabatu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:backgroundTint="@android:color/holo_red_light"
+        android:editable="true"
+        android:text="Eliminar Cuenta"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_erreserbaEgin" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
